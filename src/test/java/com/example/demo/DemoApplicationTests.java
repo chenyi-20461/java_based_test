@@ -9,6 +9,7 @@ import java.util.Iterator;
 @SpringBootTest
 class DemoApplicationTests {
 
+//	测试foreach的return和continue等等
 	@Test
 	void foreachTest() {
 		ArrayList<Integer> arrayList=new ArrayList<Integer>();
@@ -28,7 +29,6 @@ class DemoApplicationTests {
 			if ((Integer) a==1){
 				return;
 			}
-1
 		});
 
 		System.out.println("循环1");
@@ -36,7 +36,7 @@ class DemoApplicationTests {
 		arrayList.forEach(a-> System.out.println(a));
 
 	}
-
+//lambda表达式当返回值
 	DefaultTest testinterface(){
 		return ()-> {System.out.println("a");};
 	}
