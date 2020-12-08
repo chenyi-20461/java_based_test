@@ -16,7 +16,7 @@ public class StringTest {
     }
     @Test
     public void test3() {
-        Object a="1";
+        Object a="{}";
         System.out.println(a instanceof String);
     }
 

@@ -21,6 +21,7 @@ public class BaseTest {
     @Test
     public void testWhile() {
         int n = 3;
+//        从n-1到0，循环n次
         while (n-- != 0) {
             System.out.println(n);
         }
