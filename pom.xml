@@ -13,9 +13,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<checkstyle.version>3.1.1</checkstyle.version>
 	</properties>
 
 	<modules>
@@ -61,6 +63,32 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${checkstyle.version}</version>
+				<executions>
+					<execution>
+						<!-- 绑定pmd:pmd到validate生命周期，在validate时会自动进行代码规范检查 -->
+						<id>validate</id>
+						<phase>validate</phase>
+						<configuration>
+							<!-- 配置文件的路径，在resource/config文件夹下 -->
+							<configLocation>classpath:/config/checkstyle.xml</configLocation>
+							<encoding>UTF-8</encoding>
+							<!--控制台输出-->
+							<consoleOutput>true</consoleOutput>
+							<failsOnError>true</failsOnError>
+							<!--测试目录也会进行检测-->
+							<includeTestSourceDirectory>false</includeTestSourceDirectory>
+							<!--打包跳过check-->
+							<skip>true</skip>
+						</configuration>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

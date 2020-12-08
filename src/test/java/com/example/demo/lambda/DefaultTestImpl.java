@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lambda;
 
 import lombok.Builder;
 import lombok.Data;

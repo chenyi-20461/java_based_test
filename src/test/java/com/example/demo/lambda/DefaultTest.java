@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lambda;
 @FunctionalInterface
 public interface DefaultTest {
     default void test1(String a){

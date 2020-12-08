@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.lambda;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -35,10 +35,11 @@ class DemoApplicationTests {
 		arrayList.forEach(a-> System.out.println(a));
 
 	}
-
+//  接口作为参数
 	DefaultTest testinterface(){
 		return ()-> {System.out.println("a");};
 	}
+
 
 
 }
