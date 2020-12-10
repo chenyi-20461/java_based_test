@@ -6,16 +6,19 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class IoTest {
     /**
@@ -137,22 +140,92 @@ public class IoTest {
 
     }
 
+    /**
+     * scan结合缓冲是最快.
+     *
+     * @throws IOException
+     */
     @Test
     public void testScan() throws IOException {
-        Scanner scanner = new Scanner(new FileReader(new File("d:/test3.txt")));
+//        scan的装饰速度
+        long start = System.currentTimeMillis();
+        Scanner scanner = new Scanner(new FileReader(new File("d:/test1.txt")));
         String scanSum = "";
-        while (scanner.hasNext()) {
+        while (scanner.hasNext(Pattern.compile(".是"))) {
             scanSum = scanSum + scanner.nextLine();
         }
-        System.out.println("scanner:" + scanner);
-        BufferedReader bufferedReader = new BufferedReader((new FileReader(new File("d:/test3.txt"))));
+        System.out.println(scanSum);
+        long end = System.currentTimeMillis();
+        System.out.println("scan：" + (end - start));
+//        buff的速度
+        start = System.currentTimeMillis();
+        BufferedReader bufferedReader = new BufferedReader((new FileReader(new File("d:/test1.txt"))));
         String readContent = bufferedReader.readLine();
         String sunContent = "";
         while (readContent != null) {
             sunContent = sunContent + readContent;
             readContent = bufferedReader.readLine();
         }
-        System.out.println("bufferedReader" + sunContent);
+        System.out.println("bufferedReader:" + sunContent);
+        end = System.currentTimeMillis();
+        System.out.println("Buffer：" + (end - start));
+//        scan结合buff
+        start = System.currentTimeMillis();
+        scanner = new Scanner(new BufferedReader(new FileReader(new File("d:/test1.txt"))));
+        scanSum = "";
+        while (scanner.hasNext()) {
+            scanSum = scanSum + scanner.nextLine();
+        }
+        System.out.println(scanSum);
+        end = System.currentTimeMillis();
+        System.out.println("scan结合缓冲：" + (end - start));
+    }
+
+    /**
+     * 测试hasNext(pattern)
+     */
+    @Test
+    public void testHasNext() {
+        String s = "Hello World! 3+3.0=6";
+
+        // create a new scanner with the specified String Object
+        Scanner scanner = new Scanner(s);
+
+        // check if the scanner's next token matches "rld" following 2 chars
+        System.out.println("" + scanner.hasNext(Pattern.compile("..rld")));
+
+        // check if the scanner's next token matches "llo" following 2 chars
+        System.out.println("" + scanner.hasNext(Pattern.compile("..llo")));
+
+        // print the rest of the string
+        System.out.println("" + scanner.nextLine());
+
+        // close the scanner
+        scanner.close();//原文出自【易百教程】，商业转载请联系作者获得授权，非商业请保留原文链接：https://www.yiibai.com/java/util/scanner_hasnext_pattern.html
+
+    }
+
+    /**
+     * 测试hasNext(pattern)
+     *
+     * @throws FileNotFoundException
+     */
+    @Test
+    public void testHasNext1() throws FileNotFoundException, UnsupportedEncodingException {
+        // create a new scanner with the specified String Object
+        Scanner scanner = new Scanner(new FileReader(new File("d:/test4.txt")));
+//        行数
+        int i = 1;
+        while (scanner.hasNext(Pattern.compile("..llo"))) {
+            System.out.println(i++ + "行" + scanner.nextLine());
+        }
+        Scanner scanner1 = new Scanner(new InputStreamReader(new FileInputStream(new File("d:/test5.txt")), "utf-8"));
+//        行数
+        i = 1;
+        while (scanner1.hasNext(".*这是.*")) {
+            System.out.println(scanner1.nextLine());
+        }
+        scanner.close();
     }
 
 
