@@ -1,6 +1,7 @@
 package com.example.demo.base;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.util.ResourceUtils;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -12,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
@@ -31,10 +33,11 @@ public class IoTest {
      */
     @Test
     public void testPrintStream() throws FileNotFoundException, UnsupportedEncodingException {
-
+//        String path = ResourceUtils.getURL("classpath:").getPath()+"static";
         long start = System.currentTimeMillis();
 //        true表示追加,下一个是刷新
         PrintStream printStream = new PrintStream(new FileOutputStream(new File("d:/test.txt"), true), true, "utf-8");
+
 //        有异常标记错误
         System.out.println(printStream.checkError());
         int n = 100;
@@ -226,6 +229,24 @@ public class IoTest {
             System.out.println(scanner1.nextLine());
         }
         scanner.close();
+    }
+
+    /**
+     * 测试失败
+     */
+    @Test
+    public void testUrl() throws FileNotFoundException {
+        String path = ResourceUtils.getFile("classpath:").getPath() + "static/testfile/test.txt";
+
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream("/testfile/test.txt");
+        assert inputStream != null;
+        Scanner scanner = new Scanner(inputStream);
+//        行数
+        int i = 1;
+        while (scanner.hasNext()) {
+            System.out.println(i++ + "行" + scanner.nextLine());
+        }
+
     }
 
 
