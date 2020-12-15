@@ -2,6 +2,8 @@ package com.example.demo.base;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,4 +43,10 @@ public class StringTest {
 
     }
 
+    @Test
+    public void arrayTest(){
+        String a = "11,22";
+        List list = Arrays.asList(a.split(","));
+        System.out.println(list);
+    }
 }
