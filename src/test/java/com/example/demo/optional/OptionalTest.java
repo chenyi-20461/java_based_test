@@ -57,6 +57,10 @@ public class OptionalTest {
         rightoption.ifPresent(x -> System.out.println("测试消费：" + x));
 //        测试filter，如果验证正确返回optional
         System.out.println("测试filter"+rightoption.filter(x -> (int)x>1));
+//        测试map
+        System.out.println("测试map："+rightoption.map(x->(int)x+1).get());
+//        测试flatmap
+//        rightoption.flatMap(t->Optional.of((int)t++)).get();
     }
 
 }
