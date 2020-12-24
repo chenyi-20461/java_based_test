@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.model.son.Son;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Tolerate;
@@ -13,6 +14,7 @@ import lombok.experimental.Tolerate;
 public class BuilderPerson {
     private String name;
     private Integer age;
+    private Son son;
 
     @Tolerate
     public BuilderPerson() {

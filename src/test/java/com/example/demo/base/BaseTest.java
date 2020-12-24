@@ -71,7 +71,21 @@ public class BaseTest {
         System.out.println("c=" + c);
         System.out.println("d=" + d);
     }
-
+    /**
+     * 表达式不能转对象,反向证明这是表达式
+     * 表达式的返回值是由编译器识别的，不是你能强转的
+     * lambda表达式不能写i++
+     */
+//    @Test
+//    public Integer testPlus(){
+//        Object i = 1;
+//        return (Integer)(i++);
+//    }
+//    @Test
+//    public Integer testPlus1(){
+//        Object i = 1;
+//        return (Integer)(i+1);
+//    }
     //    表达式原则 表达式有一个原则：一个变量也是表达式，多个表达式的加减法运算都是从左到右进行的
 
     /**

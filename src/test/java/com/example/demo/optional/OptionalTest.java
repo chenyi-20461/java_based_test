@@ -1,6 +1,7 @@
 package com.example.demo.optional;
 
 import com.example.demo.model.Person;
+import com.example.demo.model.son.Son;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
@@ -33,10 +34,13 @@ public class OptionalTest {
 //        int age2 = Optional.ofNullable(person1).map(a->a.getAge()).get();
         int age2 = Optional.ofNullable(person1).map(a -> a.getAge()).orElse(1);
         System.out.println("age1=" + age1 + ",age2=" + age2);
+//        优化两层拿
+        Person person2 = null;
+        System.out.println("son为"+Optional.ofNullable(person2).map(x->x.getBuilderPerson()).map(x->x.getSon()).orElse(new Son()));
     }
 
     @Test
-    public void testWay() {
+    public void testWay() throws Throwable {
 //        构造方法被私有化了
 //        Optional rightoption = new Optional<>();
         Optional rightoption = Optional.ofNullable(1);
@@ -56,11 +60,18 @@ public class OptionalTest {
 //        测试ifPresent，如果值不为空就消费，否者不消费
         rightoption.ifPresent(x -> System.out.println("测试消费：" + x));
 //        测试filter，如果验证正确返回optional
-        System.out.println("测试filter"+rightoption.filter(x -> (int)x>1));
-//        测试map
-        System.out.println("测试map："+rightoption.map(x->(int)x+1).get());
-//        测试flatmap
-//        rightoption.flatMap(t->Optional.of((int)t++)).get();
+        System.out.println("测试filter" + rightoption.filter(x -> (int) x > 1));
+//        测试map，返回optional，空不操作，不为空返回一个带有值得optional
+        System.out.println("测试map：" + rightoption.map(x -> (int) x + 1).get());
+//        测试flatmap，返回optional，空不操作，不为空返回一个带有值得optional，与map不同的是映射参数不同
+        rightoption.flatMap(t -> Optional.of((Integer) t + 1)).get();
+//        测试orElse，空返回参数，不空返回值
+        System.out.println("测试orelse正确:" + rightoption.orElse(3) + "空：" + optional.orElse(2));
+//        测试orElseGet，空返回生产者参数，不空返回值
+        System.out.println("测试orElseGet正确:" + rightoption.orElseGet(() -> 1) + "空：" + optional.orElseGet(() -> 1));
+//        测试orElseThrow，空返回异常生产者，不空返回值
+        System.out.println("测试orElseThrow正确:" + rightoption.orElseThrow(() -> new Exception("11")));
+        System.out.println("测试orElseThrow错误:" + optional.orElseThrow(() -> new Exception("无值")));
     }
 
 }

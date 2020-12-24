@@ -8,7 +8,9 @@ import com.example.demo.model.Person;
  * 2.直接私有化无参构造
  */
 public class Son extends Person {
+    private String sonName;
     public static void main(String[] args) {
         System.out.println(new Son());
     }
+
 }

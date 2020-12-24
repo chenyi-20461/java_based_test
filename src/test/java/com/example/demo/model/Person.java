@@ -13,5 +13,6 @@ public class Person {
     private String name;
     private Integer age;
 //    Person(String name, String age){}
+    private BuilderPerson builderPerson;
 
 }
