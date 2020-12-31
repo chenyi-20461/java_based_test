@@ -1,6 +1,6 @@
-package com.example.demo.model.son;
+package com.example.demo.domain.model.son;
 
-import com.example.demo.model.Person;
+import com.example.demo.domain.model.Person;
 
 /**
  * 当父类没有默认构造方法时时无法构造的，

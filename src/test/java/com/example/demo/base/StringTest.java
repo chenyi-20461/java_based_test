@@ -44,9 +44,16 @@ public class StringTest {
     }
 
     @Test
-    public void arrayTest(){
+    public void arrayTest() {
         String a = "11,22";
         List list = Arrays.asList(a.split(","));
         System.out.println(list);
+    }
+
+    @Test
+    public void wayTest() {
+//       contains方法，包含字符串返回true，否者false
+        String a = "[\"等待放款\"]";
+        System.out.println(a.contains("等待放款"));
     }
 }

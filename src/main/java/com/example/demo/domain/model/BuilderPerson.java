@@ -1,6 +1,6 @@
-package com.example.demo.model;
+package com.example.demo.domain.model;
 
-import com.example.demo.model.son.Son;
+import com.example.demo.domain.model.son.Son;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.Tolerate;
@@ -20,5 +20,7 @@ public class BuilderPerson {
     public BuilderPerson() {
 
     }
+
+
 
 }

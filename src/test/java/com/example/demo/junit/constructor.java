@@ -1,6 +1,6 @@
 package com.example.demo.junit;
 
-import com.example.demo.model.Person;
+import com.example.demo.domain.model.Person;
 import org.junit.jupiter.api.Test;
 
 /**

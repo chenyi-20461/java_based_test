@@ -2,6 +2,8 @@ package com.example.demo.base;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Objects;
+
 public class BaseTest {
     //    测试||和&&只判前面就能行,
     @Test
@@ -112,5 +114,31 @@ public class BaseTest {
          * 3*/
         System.out.println("复杂运算：" + k);  // 结果：8
 
+    }
+    @Test
+    public void testplus(){
+        Integer num = 1;
+//        null的等于会出错,由于1转成object，object相等时不会有错的
+        System.out.println(num == (Object)1);
+        System.out.println(Objects.equals(num,1));
+    }
+
+    /**
+     * 测试除法和取余
+     */
+    @Test
+    public void testDivide(){
+                int a = 13 / 5;
+                int b = 13 % 5;
+                int c = 5 / 13;
+                int d = 5 % 13;
+                int e = 13 / -5;
+                int f = -13 / 5;
+                int h = -13 % 5;
+                int j = 13 % -5;
+                System.out.println(a + "，" + b);
+                System.out.println(c + "，" + d);
+                System.out.println(e + "，" + f);
+                System.out.println(h + "，" + j);
     }
 }
