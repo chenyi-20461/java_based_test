@@ -20,4 +20,5 @@ public class constructor {
     public void test1() {
         Person person = new Person();
     }
+
 }
