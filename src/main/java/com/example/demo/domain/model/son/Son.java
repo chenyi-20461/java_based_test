@@ -13,4 +13,10 @@ public class Son extends Person {
         System.out.println(new Son());
     }
 
+    /**
+     * 接口测试
+     */
+    public void interTest(int param1,int param2){
+        System.out.println(1);
+    }
 }

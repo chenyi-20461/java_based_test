@@ -56,4 +56,12 @@ public class StringTest {
         String a = "[\"等待放款\"]";
         System.out.println(a.contains("等待放款"));
     }
+
+    @Test
+    public void stringTest() {
+//       contains方法，包含字符串返回true，否者false
+        String a = "[001]";
+        a.replace("[005]","1");
+        System.out.println(a);
+    }
 }
