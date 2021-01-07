@@ -31,4 +31,5 @@ public class ArraysTest {
         Arrays.asList(new Object[]{1,2}).forEach(System.out::println);
 
     }
+
 }

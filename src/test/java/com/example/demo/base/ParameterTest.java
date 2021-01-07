@@ -7,8 +7,14 @@ import java.util.stream.Stream;
 /**
  * 参数类型和“...”三个点之间不必须有一个空格（Object ...os），Object...os也不会报错误；
  * 可变长度参数列表这个参数必须是参数列表中的最后一个参数，不然会报错
+ *
+ * class 类名称 <泛型标识：可以随便写任意标识号，标识指定的泛型的类型>
+ *
+ * //静态方法 使用泛型,只能声明为泛型方法,无法依托于泛型类,因为静态方法早于类编译
  */
-public class ParameterTest {
+//public class ParameterTest<X> {
+    public class ParameterTest {
+//    private X key;
     /**
      *
      * @param a
@@ -27,6 +33,10 @@ public class ParameterTest {
 
     /**
      * 泛型测试定义方法
+     * 1）public 与 返回值中间<T>非常重要，可以理解为声明此方法为泛型方法。
+     * 2）只有声明了<T>的方法才是泛型方法，泛型类中的使用了泛型的成员方法并不是泛型方法。
+     * 3）<T>表明该方法将使用泛型类型T，此时才可以在方法中使用泛型类型T。
+     * 4）与泛型类的定义一样，此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示
      */
     public static <T> int testGeneric(int a,T... objects){
         System.out.println("参数个数："+a);
@@ -37,6 +47,14 @@ public class ParameterTest {
         });
         return a;
     }
+
+    /**
+     * 其实是属于非泛型方法
+     * @param key
+     */
+//    public ParameterTest(X key) {
+//        this.key = key;
+//    }
 
     /**
      *
@@ -145,5 +163,17 @@ public class ParameterTest {
         ParameterTest.varParameterTest1(x1);
         System.out.println("========");
         ParameterTest.testGeneric1(x1);
+    }
+
+    /**
+     * 测试问号
+     */
+    public static <T> T testGeneric2(T... objects){
+        Stream.of(objects).forEach(o -> {
+            if (o instanceof Integer) {
+                System.out.println("数组:"+ o);
+            }
+        });
+        return objects[0];
     }
 }
