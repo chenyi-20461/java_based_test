@@ -165,15 +165,7 @@ import java.util.stream.Stream;
         ParameterTest.testGeneric1(x1);
     }
 
-    /**
-     * 测试问号
-     */
-    public static <T> T testGeneric2(T... objects){
-        Stream.of(objects).forEach(o -> {
-            if (o instanceof Integer) {
-                System.out.println("数组:"+ o);
-            }
-        });
-        return objects[0];
-    }
+
+
+
 }
