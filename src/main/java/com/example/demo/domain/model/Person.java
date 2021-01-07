@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Person {
-    private String name;
+    /*
+    * 默认值*/
+    @Builder.Default
+    private String name = "zhangSan";
     private Integer age;
     //    Person(String name, String age){}
     private BuilderPerson builderPerson;
