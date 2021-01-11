@@ -2,6 +2,11 @@ package com.example.demo.domain.model;
 
 import lombok.Data;
 
+/**
+ * class 类名称 <泛型标识：可以随便写任意标识号，标识指定的泛型的类型>
+ * @param <T>
+ * @param <S>
+ */
 @Data
 public class Generic<T, S extends T> {
     private T t1;

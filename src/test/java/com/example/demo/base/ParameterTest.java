@@ -121,6 +121,9 @@ public class ParameterTest {
 
     /**
      * 泛型测试方法
+     * 泛型T... 与object...
+     *
+     * 结论基本相同
      */
     @Test
     public void testGeneric1() {
@@ -129,6 +132,7 @@ public class ParameterTest {
         ParameterTest.varParameterTest(2, x);
         System.out.println("========");
         ParameterTest.testGeneric(2, x);
+        ParameterTest.testGeneric(2, 1,"2");
     }
 
     /**
@@ -136,6 +140,19 @@ public class ParameterTest {
      * @return
      */
     public static int varParameterTest1(Object... objects) {
+        Stream.of(objects).forEach(o -> {
+            if (o instanceof Integer) {
+                System.out.println("数组:" + (int) o);
+            }
+        });
+        return 1;
+    }
+
+    /**
+     * @param objects 强制数组写法，写不了多参数
+     * @return
+     */
+    public static int varParameterTest2(Object[] objects) {
         Stream.of(objects).forEach(o -> {
             if (o instanceof Integer) {
                 System.out.println("数组:" + (int) o);
@@ -168,7 +185,7 @@ public class ParameterTest {
     public void testOneParam() {
         //        多个参数，数组写法
         int[] x = {1, 2, 3};
-        ParameterTest.varParameterTest1(x);
+        ParameterTest.varParameterTest1(x,1);
         System.out.println("========");
         ParameterTest.testGeneric1(x);
         System.out.println("大哥不容易啊");
@@ -176,6 +193,8 @@ public class ParameterTest {
         ParameterTest.varParameterTest1(x1);
         System.out.println("========");
         ParameterTest.testGeneric1(x1);
+//        参数为object[]时不能传多参数,错误参数
+//        ParameterTest.varParameterTest2(1,1);
     }
 
     /**
