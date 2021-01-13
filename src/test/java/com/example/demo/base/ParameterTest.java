@@ -2,6 +2,7 @@ package com.example.demo.base;
 
 import com.example.demo.domain.model.Generic;
 import com.example.demo.domain.model.Person;
+import com.example.demo.domain.model.compare.Dog;
 import com.example.demo.domain.model.son.Son;
 import com.example.demo.domain.model.son.grandson.GrandSon;
 import org.junit.jupiter.api.Test;
@@ -122,7 +123,7 @@ public class ParameterTest {
     /**
      * 泛型测试方法
      * 泛型T... 与object...
-     *
+     * <p>
      * 结论基本相同
      */
     @Test
@@ -132,7 +133,7 @@ public class ParameterTest {
         ParameterTest.varParameterTest(2, x);
         System.out.println("========");
         ParameterTest.testGeneric(2, x);
-        ParameterTest.testGeneric(2, 1,"2");
+        ParameterTest.testGeneric(2, 1, "2");
     }
 
     /**
@@ -185,7 +186,7 @@ public class ParameterTest {
     public void testOneParam() {
         //        多个参数，数组写法
         int[] x = {1, 2, 3};
-        ParameterTest.varParameterTest1(x,1);
+        ParameterTest.varParameterTest1(x, 1);
         System.out.println("========");
         ParameterTest.testGeneric1(x);
         System.out.println("大哥不容易啊");
@@ -205,19 +206,19 @@ public class ParameterTest {
         Generic<Person, Son> generic = new Generic<>();
         generic.setT1(Person.builder().age(12).build());
         generic.setS1(Son.builder().sonName("zhangSan").build());
-        System.out.println("泛型类测试"+generic.getS1().getName()+generic.getT1().getAge());
+        System.out.println("泛型类测试" + generic.getS1().getName() + generic.getT1().getAge());
     }
 
     /**
      * 泛型类问号测试
      */
     @Test
-    public void testQuestionMark(){
-        Generic<Person , Son> generic = new Generic<>();
+    public void testQuestionMark() {
+        Generic<Person, Son> generic = new Generic<>();
         /*
-        * ？号泛指
-        * 可以传入不同的generic*/
-        Generic<Person , Son> generic1 = new Generic<>();
+         * ？号泛指
+         * 可以传入不同的generic*/
+        Generic<Person, Son> generic1 = new Generic<>();
         generic1.setT1(Person.builder().age(12).build());
         generic1.setS1(Son.builder().sonName("zhangSan").build());
         Generic<Son, GrandSon> generic2 = new Generic<>();
@@ -226,12 +227,21 @@ public class ParameterTest {
         generic.testQuestion(generic1);
         generic.testQuestion(generic2);
         /*
-        * 不使用？如果初始化就会指定类型
-        * 应该是不能行的*/
+         * 不使用？如果初始化就会指定类型
+         * 应该是不能行的*/
         generic.testQuestion2(generic1);
         /*
-        * 下面为出错代码*/
+         * 下面为出错代码*/
 //        generic.testQuestion2(generic2);
     }
 
+    /**
+     * 测试泛型方法和参数
+     */
+    @Test
+    public void test3() {
+        Dog dog = new Dog();
+        System.out.println((String) dog.bite("s"));
+        System.out.println((Integer) dog.bite1(1));
+    }
 }

@@ -141,4 +141,11 @@ public class BaseTest {
                 System.out.println(e + "，" + f);
                 System.out.println(h + "，" + j);
     }
+    /**
+     * string的equals比较能不能有null
+     */
+    @Test
+    public void testEquals(){
+        System.out.println("1".equals(null));
+    }
 }
