@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
  */
 public class EnumTest {
     /**
-     * 测试输出的字符串，最干脆的定义，无属性
+     * 测试输出的字符串，最干脆的定义，无属性.
+     *
+     * 直接输出定义字符串
      */
     @Test
     public void test1(){
