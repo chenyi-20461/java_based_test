@@ -1,5 +1,6 @@
 package com.example.demo.base;
 
+import com.example.demo.domain.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;
@@ -147,5 +148,21 @@ public class BaseTest {
     @Test
     public void testEquals(){
         System.out.println("1".equals(null));
+    }
+
+    /**
+     * object的toString测试
+     * 检查到对应的类型，向下转型了
+     *
+     * 结果
+     * Object a = "1";
+     * Object b = new Dog();
+     */
+    @Test
+    public void testToString(){
+        Object a = "1";
+        Object b = new Dog();
+        System.out.println(a.toString());
+        System.out.println(b.toString());
     }
 }
