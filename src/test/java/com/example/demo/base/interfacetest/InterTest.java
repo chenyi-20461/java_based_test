@@ -32,4 +32,17 @@ public class InterTest {
 //        cyTest.testOut5(new Person1());
 //        cyTest.testOut5(new GrandSon1());
     }
+
+    /**
+     * 普通方法紧接上一个测试.
+     *
+
+     * 实际引用不是泛型和object的话都必须强制相同
+     */
+    @Test
+    public void testThree(){
+        Person1 person1 = new Person1();
+//        person1.testParam(new Person1());
+//        person1.testParam(new GrandSon1());
+    }
 }
