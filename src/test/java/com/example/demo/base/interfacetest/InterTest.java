@@ -1,5 +1,6 @@
 package com.example.demo.base.interfacetest;
 
+import com.example.demo.domain.Person1;
 import com.example.demo.domain.impl.CyTestImpl;
 import org.junit.jupiter.api.Test;
 
@@ -15,5 +16,20 @@ public class InterTest {
         CyTestImpl cyTest = new CyTestImpl();
 //        cyTest.zhangSan = "11";错误代码，final变量不能赋值
         System.out.println(cyTest.zhangSan);
+    }
+
+    /**
+     * 接口里面参数不能向下转型.
+     *
+     * 定义时必须强制相同，不管是泛型还是其他的东西
+     *
+     * 实际引用不是泛型和object的话都必须强制相同
+     */
+    @Test
+    public void testTwo(){
+        CyTestImpl cyTest = new CyTestImpl();
+        cyTest.testOut(new Person1());
+//        cyTest.testOut5(new Person1());
+//        cyTest.testOut5(new GrandSon1());
     }
 }
