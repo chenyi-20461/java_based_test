@@ -45,4 +45,32 @@ public class InterTest {
 //        person1.testParam(new Person1());
 //        person1.testParam(new GrandSon1());
     }
+
+    /**
+     * 抽象类名作为形式参数
+     * 如果你以后看到一个方法的形参要一个“抽象类类型”，就传该类的子类对象
+     */
+    @Test
+    public void testFour(){
+        Dog dog = new Dog();
+        setMethod(dog,114);
+    }
+
+    private static void setMethod(Animal an,int num) {
+        an.show(num);
+    }
+
+    abstract class Animal{
+        int num=110;
+        public abstract void show(int a);
+    }
+    class Dog extends Animal{
+        int num=20;
+        @Override
+        public void show(int num) {
+            System.out.println(num);
+            System.out.println(this.num);
+            System.out.println(super.num);
+        }
+    }
 }
