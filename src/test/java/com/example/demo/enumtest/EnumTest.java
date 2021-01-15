@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 public class EnumTest {
     /**
      * 测试输出的字符串，最干脆的定义，无属性.
-     *
+     * <p>
      * 直接输出定义字符串
      */
     @Test
-    public void test1(){
+    public void test1() {
         System.out.println(TestEnum.FANG_XUN_TONG);
         System.out.println(TestEnum.lowString);
     }
@@ -23,7 +23,18 @@ public class EnumTest {
      * 没有键会抛异常
      */
     @Test
-    public void test2(){
+    public void test2() {
         System.out.println(TestEnum.valueOf("1"));
     }
+
+    /**
+     * toString,将对象转成string.
+     * 没有无法equals
+     */
+    @Test
+    public void test3() {
+        System.out.println(TestEnum.lowString.equals("lowString"));
+        System.out.println(TestEnum.lowString.toString().equals("lowString"));
+    }
+
 }
