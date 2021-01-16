@@ -165,4 +165,15 @@ public class BaseTest {
         System.out.println(a.toString());
         System.out.println(b.toString());
     }
+
+    /**
+     * Double.valueOf测试
+
+     */
+    @Test
+    public void testDouble(){
+//        System.out.println(Double.valueOf(null));
+        Object a =null;
+        System.out.println((double)a);
+    }
 }

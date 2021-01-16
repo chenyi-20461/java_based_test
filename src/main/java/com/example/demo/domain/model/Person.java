@@ -12,10 +12,10 @@ import lombok.experimental.SuperBuilder;
 @Data
 public class Person {
     /*
-    * 默认值*/
+     * 默认值*/
     @Builder.Default
     private String name = "zhangSan";
-    private Integer age;
+    private Integer age = 10;
     //    Person(String name, String age){}
     private BuilderPerson builderPerson;
 
@@ -43,7 +43,7 @@ public class Person {
     /**
      * 接口测试
      */
-    public void InterT(int param1,int param2){
+    public void InterT(int param1, int param2) {
         System.out.println(1);
     }
 

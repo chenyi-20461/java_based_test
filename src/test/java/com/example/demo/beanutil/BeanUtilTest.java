@@ -39,4 +39,20 @@ public class BeanUtilTest {
         System.out.println(JSON.parseArray(JSON.toJSONString(list), Person.class));
     }
 
+    /**
+     * 复制后是否带上默认值
+     *
+     * 会把其他属性抹掉
+     */
+    @Test
+    public void testTwo(){
+        Dog dog = new Dog();
+        dog.setName("zhangSan");
+        Person person = new Person();
+        System.out.println(person);
+        BeanUtils.copyProperties(dog, person);
+        System.out.println(person);
+    }
+
+
 }
