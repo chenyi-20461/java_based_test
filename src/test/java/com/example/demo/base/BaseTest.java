@@ -144,6 +144,8 @@ public class BaseTest {
     }
     /**
      * string的equals比较能不能有null
+     *
+     * 能
      */
     @Test
     public void testEquals(){
@@ -157,6 +159,8 @@ public class BaseTest {
      * 结果
      * Object a = "1";
      * Object b = new Dog();
+     *
+     * 由于System.out.println默认调用toString方法
      */
     @Test
     public void testToString(){

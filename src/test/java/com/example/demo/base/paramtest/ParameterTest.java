@@ -1,4 +1,4 @@
-package com.example.demo.base;
+package com.example.demo.base.paramtest;
 
 import com.example.demo.domain.model.Generic;
 import com.example.demo.domain.model.Person;
@@ -141,6 +141,7 @@ public class ParameterTest {
      * @return
      */
     public static int varParameterTest1(Object... objects) {
+        System.out.println("多参数有空格写法写法");
         Stream.of(objects).forEach(o -> {
             if (o instanceof Integer) {
                 System.out.println("数组:" + (int) o);
@@ -153,13 +154,9 @@ public class ParameterTest {
      * @param objects 强制数组写法，写不了多参数
      * @return
      */
-    public static int varParameterTest2(Object[] objects) {
-        Stream.of(objects).forEach(o -> {
-            if (o instanceof Integer) {
-                System.out.println("数组:" + (int) o);
-            }
-        });
-        return 1;
+    public static <T> void varParameterTest3(T[] objects) {
+        System.out.println("泛型数组作为参数");
+        Stream.of(objects).forEach(System.out::println);
     }
 
     /**
@@ -196,6 +193,11 @@ public class ParameterTest {
         ParameterTest.testGeneric1(x1);
 //        参数为object[]时不能传多参数,错误参数
 //        ParameterTest.varParameterTest2(1,1);
+//        ParameterTest.varParameterTest2(x);
+        String[] strings = new String[]{"a", "1"};
+        Object a = "1";
+        System.out.println("字符串测试是否是数字：" + (a instanceof Integer));
+        ParameterTest.varParameterTest3(strings);
     }
 
     /**
@@ -244,4 +246,6 @@ public class ParameterTest {
         System.out.println((String) dog.bite("s"));
         System.out.println((Integer) dog.bite1(1));
     }
+
+
 }

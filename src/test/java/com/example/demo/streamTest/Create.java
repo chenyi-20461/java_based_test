@@ -11,8 +11,16 @@ public class Create {
     @Test
     public void testCreate(){
         Object[] dd = {"a","b","C"};
-        Arrays.asList(dd).forEach(System.out::println);
+        Arrays.stream(dd).forEach(System.out::println);
+        String[] strings = new String[]{"1", "a", "b"};
+        Arrays.stream(strings).forEach(System.out::println);
+        int[] ints = new int[]{1,2,3};
+        Arrays.stream(ints).forEach(System.out::println);
     }
+
+    /**
+     * stream.of通过Stream的静态方法
+     */
 
 
 }

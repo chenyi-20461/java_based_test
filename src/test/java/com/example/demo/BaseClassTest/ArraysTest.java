@@ -228,4 +228,11 @@ public class ArraysTest {
         Arrays.spliterator(arr).forEachRemaining((Consumer<? super Integer>) a-> System.out.println(a));
     }
 
+    /**
+     * stream返回泛型数组对应的stream
+     */
+    @Test
+    public void test9(){
+
+    }
 }
