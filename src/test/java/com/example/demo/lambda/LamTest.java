@@ -11,6 +11,7 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class LamTest {
     /**
@@ -86,18 +87,18 @@ public class LamTest {
 
     /**
      * foreach测试
-     *
+     * <p>
      * 测试foreach,当你不指定foreach的泛型的时候，就是
-     *     default void forEach(Consumer<? super T> action) {
-     *         Objects.requireNonNull(action);
-     *         for (T t : this) {
-     *             action.accept(t);
-     *         }
+     * default void forEach(Consumer<? super T> action) {
+     * Objects.requireNonNull(action);
+     * for (T t : this) {
+     * action.accept(t);
+     * }
      * 此时t为object，lambda表达式映射时才能正确完成
      * 指定泛型才能够lambda表达式映射成功
      */
     @Test
-    public void testForeach(){
+    public void testForeach() {
         Person person = new Person();
         Person person1 = new Person();
         person1.setAge(13);
@@ -112,6 +113,20 @@ public class LamTest {
 //        错误写法
     }
 
+
+    /**
+     * test UnaryOperator<T>
+     * <p>
+     * 返回一个始终返回输入参数的一元操作符.
+     * 结果是输入什么，就输出什么.
+     */
+    @Test
+    public void testUnaryOperator() {
+        UnaryOperator<Integer> unaryOperator = a -> a + 1;
+        UnaryOperator<Integer> unaryOperator1 = UnaryOperator.identity();
+        System.out.println("测试identity方法:" + unaryOperator1.apply(1));
+        System.out.println("普通UnaryOperator" + unaryOperator.apply(1));
+    }
 
 
 }
