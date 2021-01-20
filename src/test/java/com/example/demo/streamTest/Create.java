@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 
 /**
  * stream的创建.
- *
+ * <p>
  * Arrays.stream
  * stream.of
  * Collection.stream
@@ -26,7 +26,6 @@ import java.util.stream.Stream;
  * Stream.builder
  * Stream.iterate
  * Files.lines,所有流的lines方法
- *
  */
 public class Create {
     /**
@@ -124,7 +123,7 @@ public class Create {
     /**
      * 文件的流Files.lines不如buffer
      * files.lines不稳定？
-     *
+     * <p>
      * 速度
      * buffer>BufferedReader.line>Files.lines
      */
@@ -159,11 +158,10 @@ public class Create {
 
     /**
      * Stream.iterate(起始元素，处理的函数)无限流
-     *
      */
     @Test
-    public void testIterate(){
-        Stream<Integer> integerStream = Stream.iterate(2,a->a+2);
+    public void testIterate() {
+        Stream<Integer> integerStream = Stream.iterate(2, a -> a + 2);
         integerStream.limit(10).forEach(System.out::println);
     }
 }
