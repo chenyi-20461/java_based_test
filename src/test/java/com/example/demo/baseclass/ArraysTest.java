@@ -1,4 +1,4 @@
-package com.example.demo.BaseClassTest;
+package com.example.demo.baseclass;
 
 import com.example.demo.domain.model.Person;
 import com.example.demo.domain.model.compare.Dog;
