@@ -229,10 +229,17 @@ public class ArraysTest {
     }
 
     /**
-     * stream返回泛型数组对应的stream
+     * stream返回泛型数组对应的stream.
+     *
+     * char数组不能被转为stream,基本类型数组char不能识别
      */
     @Test
     public void test9(){
-
+//        char[] chars = new char[]{22,'a'};
+//        Arrays.stream(chars);
+        Dog dog = new Dog("zs", 1);
+        Dog dog1 = new Dog("liSi", 2);
+        Dog[] dogs = new Dog[]{dog, dog1};
+        Arrays.stream(dogs).forEach(System.out::println);
     }
 }

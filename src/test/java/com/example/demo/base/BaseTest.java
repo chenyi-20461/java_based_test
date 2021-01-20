@@ -172,12 +172,23 @@ public class BaseTest {
 
     /**
      * Double.valueOf测试
-
+     * 会空指针
      */
     @Test
     public void testDouble(){
 //        System.out.println(Double.valueOf(null));
         Object a =null;
         System.out.println((double)a);
+    }
+
+    /**
+     * Double.valueOf测试
+
+     */
+    @Test
+    public void testThree(){
+//        System.out.println(Double.valueOf(null));
+        Object a =null;
+        System.out.println((Dog)a);
     }
 }
