@@ -3,6 +3,7 @@ package com.example.demo.lambok;
 import com.example.demo.domain.model.Person;
 import com.example.demo.domain.model.son.Son;
 import com.example.demo.domain.testmodel.classinherit.Uncle;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -53,6 +54,26 @@ public class LambokTest {
      */
     @Test
     public void testAttribute1() {
+        Uncle uncle = Uncle.builder().build();
+    }
+
+    /**
+     * @SneakyThrows.
+     *
+     * @SneakyThrows就是为了消除模板话的try catch代码
+     * 编译后的代码
+     *     @Test
+     *     public void testAttribute2() {
+     *         try {
+     *             Uncle var1 = Uncle.builder().build();
+     *         } catch (Throwable var2) {
+     *             throw var2;
+     *         }
+     *     }
+     */
+    @SneakyThrows
+    @Test
+    public void testAttribute2() {
         Uncle uncle = Uncle.builder().build();
     }
 }
