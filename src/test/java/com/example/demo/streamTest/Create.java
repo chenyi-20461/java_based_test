@@ -69,12 +69,16 @@ public class Create {
      * <p>
      * of(T... values) 底层使用arrays.stream(T[] array)
      * of(T t)
+     * <p>
+     * 当全是字符串的时候能识别是字符串.
      */
     @Test
     public void testOf() {
         Stream.of(1, "1").forEach(System.out::println);
         Dog dog = new Dog("zs", 1);
         Stream.of(dog).forEach(System.out::println);
+//        当全是字符串的时候能识别是字符串 toString为多余,equals是字符串方法
+        Stream.of("1", "2").forEach(a -> System.out.println(a.equals("1")));
     }
 
     /**
@@ -213,7 +217,7 @@ public class Create {
      * Random.ints()无 Random.ints(long streamSize).
      */
     @Test
-    public void testRandom(){
+    public void testRandom() {
         Random random = new Random(10);
 //        有限流
         IntStream intStream = random.ints(10);
@@ -225,13 +229,13 @@ public class Create {
      * BitSet.stream().
      */
     @Test
-    public void testBitSet(){
+    public void testBitSet() {
         BitSet bitSet = new BitSet();
         bitSet.set(1);
         bitSet.set(6);
         bitSet.clear(1);
-       IntStream intStream = bitSet.stream();
-       intStream.forEach(System.out::println);
+        IntStream intStream = bitSet.stream();
+        intStream.forEach(System.out::println);
     }
 
     /**
@@ -247,7 +251,7 @@ public class Create {
      * Pattern.splitAsStream(java.lang.CharSequence).
      */
     @Test
-    public void testSplitAsStream(){
+    public void testSplitAsStream() {
         Pattern pattern = Pattern.compile(",");
         Stream<String> stringStream = pattern.splitAsStream("a,a,a,b,aaa,ff");
         stringStream.forEach(System.out::println);
