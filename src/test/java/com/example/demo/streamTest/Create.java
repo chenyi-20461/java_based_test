@@ -27,6 +27,8 @@ import java.util.stream.Stream;
 /**
  * stream的创建.
  * <p>
+ * intStream和LongStream和DoubleStream 和stream是平级，直接继承stream,不影响原数据源
+ * <p>
  * Arrays.stream
  * stream.of
  * Collection.stream
