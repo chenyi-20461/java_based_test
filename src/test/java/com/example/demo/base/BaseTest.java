@@ -183,7 +183,8 @@ public class BaseTest {
 
     /**
      * Double.valueOf测试
-
+     *
+     * 强转可以为空
      */
     @Test
     public void testThree(){
@@ -191,4 +192,17 @@ public class BaseTest {
         Object a =null;
         System.out.println((Dog)a);
     }
+
+    /**
+     * java基本语法.
+     *
+     * a+b操作不接收不能直接写.
+     */
+    @Test
+    public void testFour(){
+        int a = 1;
+        int b =1;
+//        a+b;
+    }
+
 }
