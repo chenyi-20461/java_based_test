@@ -242,4 +242,15 @@ public class ArraysTest {
         Dog[] dogs = new Dog[]{dog, dog1};
         Arrays.stream(dogs).forEach(System.out::println);
     }
+
+    /**
+     * 实用arrays.
+     *实际还是equals方法，对比每个对象。
+     * 筛选数字
+     */
+    @Test
+    public void test10(){
+        System.out.println(Arrays.asList(1,2,3).contains(1));
+        System.out.println(Arrays.asList(Dog.builder().age(12).build(),Dog.builder().age(12).build()).contains(Dog.builder().age(12).build()));
+    }
 }
