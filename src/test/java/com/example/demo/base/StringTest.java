@@ -1,5 +1,6 @@
 package com.example.demo.base;
 
+import com.example.demo.domain.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -63,5 +64,34 @@ public class StringTest {
         String a = "[001]";
         a.replace("[005]","1");
         System.out.println(a);
+    }
+
+
+    public void test(String a){
+        a = a+"1";
+        System.out.println(a);
+    }
+
+    public void test(Dog dog){
+        dog.setAge(13);
+    }
+
+    /**
+     * 测试变量string传递和普通类变量传递是否可变.
+     *
+     * string不可变,无法改变引用的地址内的东西，所以a+1；不可以独立没有变量接受
+     * 方法的变量只是一个新变量引用了相同的地址块，作＋时并没有改变内存值
+     *
+     * 而其他类是可变的,方法的变量只是一个新变量引用了相同的地址块，但是能改变地址块，所有其他能变
+     */
+    @Test
+    public void testParam(){
+        String a = "1";
+
+        Dog dog = new Dog();
+        test(a);
+        test(dog);
+        System.out.println("string:"+a);
+        System.out.println("dog:"+dog);
     }
 }
