@@ -34,7 +34,6 @@ import java.util.stream.Stream;
  * Stream<T> peek(Consumer<? super T> action);
  * Stream<T> limit(long maxSize);
  * Stream<T> skip(long n);
-
  */
 public class Intermediate {
     /**
@@ -54,13 +53,21 @@ public class Intermediate {
      * 通过map映射条件来形成一个新的stream，是一对一的关系.
      * <p>
      * 进入的元素数量=消费的元素数量
-     * 只是对数组里面的东西遍历产生新steam，他会将数组里面的每一个东西都看成整体.不能传数组
+     * 只是对数组里面的东西遍历产生新steam，他会将数组里面的每一个东西都看成整体.不能传基本类型数组
      */
     @Test
     public void testMap() {
         String[] strings = new String[]{"1", "a", "2", "b"};
         Stream.of(strings).map(a -> a + "1").forEach(System.out::println);
         System.out.println(Arrays.toString(strings));
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        Stream.of(dog, dog1, dog2).map(dog3 -> {
+            dog3.setName("test");
+            return dog3;
+        }).forEach(System.out::println);
+        System.out.println(dog.toString() + dog1 + dog2);
     }
 
     /**
@@ -227,6 +234,27 @@ public class Intermediate {
                 .filter(e -> e.length() > 3)
                 .peek(String::toUpperCase)
                 .forEach(System.out::println);
+
+    }
+
+    /**
+     * peek能不能改变数据源?
+     * 能
+     */
+    @Test
+    public void testChange() {
+        Person person = Person.builder().name("zs").age(12).build();
+        Person person1 = Person.builder().name("zs").age(11).build();
+        Stream.of(person, person1).peek(person2 -> {
+            person2.setAge(55);
+        }).forEach(System.out::println);
+        System.out.println(person.toString() + person1.toString());
+        System.out.println("会不会改变原来的流");
+        Stream<Person> stream = Stream.of(person, person1);
+        stream.peek(person2 -> {
+            person2.setAge(51);
+        }).forEach(System.out::println);
+        stream.forEach(System.out::println);
     }
 
     /**
