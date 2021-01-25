@@ -3,6 +3,7 @@ package com.example.demo.base;
 import com.example.demo.domain.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class BaseTest {
@@ -116,54 +117,56 @@ public class BaseTest {
         System.out.println("复杂运算：" + k);  // 结果：8
 
     }
+
     @Test
-    public void testplus(){
+    public void testplus() {
         Integer num = 1;
 //        null的等于会出错,由于1转成object，object相等时不会有错的
-        System.out.println(num == (Object)1);
-        System.out.println(Objects.equals(num,1));
+        System.out.println(num == (Object) 1);
+        System.out.println(Objects.equals(num, 1));
     }
 
     /**
      * 测试除法和取余
      */
     @Test
-    public void testDivide(){
-                int a = 13 / 5;
-                int b = 13 % 5;
-                int c = 5 / 13;
-                int d = 5 % 13;
-                int e = 13 / -5;
-                int f = -13 / 5;
-                int h = -13 % 5;
-                int j = 13 % -5;
-                System.out.println(a + "，" + b);
-                System.out.println(c + "，" + d);
-                System.out.println(e + "，" + f);
-                System.out.println(h + "，" + j);
+    public void testDivide() {
+        int a = 13 / 5;
+        int b = 13 % 5;
+        int c = 5 / 13;
+        int d = 5 % 13;
+        int e = 13 / -5;
+        int f = -13 / 5;
+        int h = -13 % 5;
+        int j = 13 % -5;
+        System.out.println(a + "，" + b);
+        System.out.println(c + "，" + d);
+        System.out.println(e + "，" + f);
+        System.out.println(h + "，" + j);
     }
+
     /**
      * string的equals比较能不能有null
-     *
+     * <p>
      * 能
      */
     @Test
-    public void testEquals(){
+    public void testEquals() {
         System.out.println("1".equals(null));
     }
 
     /**
      * object的toString测试
      * 检查到对应的类型，向下转型了
-     *
+     * <p>
      * 结果
      * Object a = "1";
      * Object b = new Dog();
-     *
+     * <p>
      * 由于System.out.println默认调用toString方法
      */
     @Test
-    public void testToString(){
+    public void testToString() {
         Object a = "1";
         Object b = new Dog();
         System.out.println(a.toString());
@@ -175,34 +178,56 @@ public class BaseTest {
      * 会空指针
      */
     @Test
-    public void testDouble(){
+    public void testDouble() {
 //        System.out.println(Double.valueOf(null));
-        Object a =null;
-        System.out.println((double)a);
+        Object a = null;
+        System.out.println((double) a);
     }
 
     /**
      * Double.valueOf测试
-     *
+     * <p>
      * 强转可以为空
      */
     @Test
-    public void testThree(){
+    public void testThree() {
 //        System.out.println(Double.valueOf(null));
-        Object a =null;
-        System.out.println((Dog)a);
+        Object a = null;
+        System.out.println((Dog) a);
     }
 
     /**
      * java基本语法.
-     *
+     * <p>
      * a+b操作不接收不能直接写.
      */
     @Test
-    public void testFour(){
+    public void testFour() {
         int a = 1;
-        int b =1;
+        int b = 1;
 //        a+b;
     }
 
+    /**
+     * arrayList的foreach
+     * steam的list的foreach都能改变数据源
+     * <p>
+     * 可以改变数组源
+     */
+    @Test
+    public void test10() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zs").build();
+        ArrayList<Dog> arrayList = new ArrayList();
+        arrayList.add(dog);
+        arrayList.add(dog1);
+        arrayList.add(dog2);
+        arrayList.forEach(dog3 -> dog3.setName("11"));
+        arrayList.forEach(System.out::println);
+        arrayList.stream().forEach(dog3 -> dog3.setName("12"));
+        arrayList.forEach(System.out::println);
+        System.out.println(arrayList);
+        System.out.println(dog.toString()+dog1.toString()+dog2.toString());
+    }
 }

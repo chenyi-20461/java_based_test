@@ -253,4 +253,5 @@ public class ArraysTest {
         System.out.println(Arrays.asList(1,2,3).contains(1));
         System.out.println(Arrays.asList(Dog.builder().age(12).build(),Dog.builder().age(12).build()).contains(Dog.builder().age(12).build()));
     }
+
 }
