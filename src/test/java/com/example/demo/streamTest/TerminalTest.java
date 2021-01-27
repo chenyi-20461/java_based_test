@@ -5,15 +5,19 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * 终止操作
+ * 终止操作.
+ * 终止操作能改变数据源.
+ * 不能两次进行终止操作，否则抛出：stream has already been operated upon or closed
  * void forEach(Consumer<? super T> action);
  * void forEachOrdered(Consumer<? super T> action);
  * Object[] toArray();
@@ -42,11 +46,17 @@ public class TerminalTest {
      * 只是功能参数相同
      * <p>
      * 遍历消费
+     * 能改变数据
      */
     @Test
     public void testForEach() {
         Stream.of(1, 2, 3).forEach(System.out::println);
         Arrays.asList(1, 2, 3).forEach(System.out::println);
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        Stream.of(dog, dog1, dog2).forEach(dog3 -> dog3.setName("11"));
+        System.out.println(dog.toString() + dog1 + dog2);
     }
 
     /**
@@ -58,6 +68,8 @@ public class TerminalTest {
     public void testForEachOrdered() {
         Stream.of(1, 2, 3).parallel().forEach(System.out::println);
         Stream.of(1, 2, 3).parallel().forEachOrdered(System.out::println);
+        System.out.println("测试stream能不能修改数据源");
+
     }
 
     /**
@@ -227,6 +239,124 @@ public class TerminalTest {
         System.out.println("list：" + list);
         System.out.println("ArrayList:" + list1);
         TreeSet<String> treeSet = Stream.of("hello", "world", "helloworld").collect(Collectors.toCollection(TreeSet::new));
-        System.out.println("treeSet"+treeSet);
+        System.out.println("treeSet" + treeSet);
     }
+
+    /**
+     * Optional<T> min(Comparator<? super T> comparator).
+     * <p>
+     * 当相同时
+     * 最小值取前面的.
+     */
+    @Test
+    public void testMin() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        Optional<Dog> dog3 = Stream.of(dog, dog1, dog2).min(Comparator.comparingInt(Dog::getAge));
+        System.out.println(dog3.get());
+    }
+
+    /**
+     * <p>
+     * max.
+     * <p>
+     * 取最大值。
+     */
+    @Test
+    public void testMax() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        Optional<Dog> dog3 = Stream.of(dog, dog1, dog2).max(Comparator.comparingInt(Dog::getAge));
+        System.out.println(dog3.get());
+    }
+
+    /**
+     * count.
+     * 取stream有多少.
+     */
+    @Test
+    public void testCount() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        long count = Stream.of(dog, dog1, dog2).count();
+        System.out.println(count);
+    }
+
+    /**
+     * anyMatch.
+     * <p>
+     * 有任何匹配的就返回true
+     */
+    @Test
+    public void testAnyMatch() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        boolean b = Stream.of(dog, dog1, dog2).anyMatch(dog3 -> dog3.getAge() == 11);
+        System.out.println(b);
+    }
+
+    /**
+     * allMatch.
+     * <p>
+     * 所有匹配的就返回true
+     */
+    @Test
+    public void testAllMatch() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        boolean b = Stream.of(dog, dog1, dog2).allMatch(dog3 -> dog3.getAge() == 11);
+        System.out.println(b);
+    }
+
+    /**
+     * noneMatch.
+     * <p>
+     * 所有不匹配的就返回true
+     */
+    @Test
+    public void testNoneMatch() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        boolean b = Stream.of(dog, dog1, dog2).noneMatch(dog3 -> dog3.getAge() == 11);
+        System.out.println(b);
+    }
+
+    /**
+     * findFirst.
+     * <p>
+     * 拿第一个
+     */
+    @Test
+    public void testFindFirst() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        Optional<Dog> b = Stream.of(dog, dog1, dog2).findFirst();
+        System.out.println(b.get());
+    }
+
+    /**
+     * Optional<T> findAny();
+     * 串行返回第一个
+     * 并行返回不确定
+     */
+    @Test
+    public void testFindAny() {
+        Dog dog = Dog.builder().age(11).name("zs").build();
+        Dog dog1 = Dog.builder().age(12).name("z1").build();
+        Dog dog2 = Dog.builder().age(11).name("zq").build();
+        Optional<Dog> b = Stream.of(dog, dog1, dog2).findAny();
+        System.out.println(IntStream.range(0, 100).parallel().findAny());
+        System.out.println(b.get());
+    }
+
+    /**
+     * con
+     */
 }
