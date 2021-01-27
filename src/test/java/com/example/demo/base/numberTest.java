@@ -57,6 +57,12 @@ public class numberTest {
     }
 
     /**
-     *
+     *BigDecimal的valueOf默认用Double的string
+     * 返回11122644.84
      */
+    @Test
+    public void testNum(){
+        System.out.println(BigDecimal.valueOf(79973.0 * 139.08).setScale(2, BigDecimal.ROUND_DOWN));
+    }
+
 }
