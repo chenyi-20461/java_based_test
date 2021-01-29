@@ -19,5 +19,5 @@ import lombok.experimental.SuperBuilder;
 @ToString(callSuper = true)
 public class Dad extends Grandpa{
     private String sonName;
-
 }
+

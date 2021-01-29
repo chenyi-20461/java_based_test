@@ -2,6 +2,7 @@ package com.example.demo.lambok;
 
 import com.example.demo.domain.model.Person;
 import com.example.demo.domain.model.son.Son;
+import com.example.demo.domain.testmodel.classinherit.Dad;
 import com.example.demo.domain.testmodel.classinherit.Uncle;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
@@ -75,5 +76,14 @@ public class LambokTest {
     @Test
     public void testAttribute2() {
         Uncle uncle = Uncle.builder().build();
+    }
+
+    /**
+     * 测试父类构造器.
+     * 必须都要superBuild
+     */
+    @Test
+    public void testFather() {
+        System.out.println(Dad.builder().name("11").build());
     }
 }
