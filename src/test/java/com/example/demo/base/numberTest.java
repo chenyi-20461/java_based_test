@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.Random;
 
 public class numberTest {
     @Test
@@ -65,4 +66,11 @@ public class numberTest {
         System.out.println(BigDecimal.valueOf(79973.0 * 139.08).setScale(2, BigDecimal.ROUND_DOWN));
     }
 
+    /**
+     * 随机数.
+     */
+    @Test
+    public void testNum1(){
+        System.out.println(new Random().nextInt());
+    }
 }
