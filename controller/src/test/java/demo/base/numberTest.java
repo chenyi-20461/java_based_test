@@ -73,4 +73,13 @@ public class numberTest {
     public void testNum1(){
         System.out.println(new Random().nextInt());
     }
+
+    /**
+     * 测试double0和字符串0
+     * 是成功的
+     */
+    @Test
+    public void testZero(){
+        System.out.println(new BigDecimal(0.00).doubleValue() == Double.parseDouble("0"));
+    }
 }

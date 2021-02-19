@@ -89,11 +89,22 @@ public class StringTest {
     @Test
     public void testParam(){
         String a = "1";
-
         Dog dog = new Dog();
         test(a);
         test(dog);
         System.out.println("string:"+a);
         System.out.println("dog:"+dog);
+    }
+
+    /**
+     * split方法
+     */
+    @Test
+    public void testSplit(){
+        String a = "11";
+        System.out.println(Arrays.toString(a.split(",")));
+        String b = "11,22";
+        System.out.println(Arrays.toString(b.split(",")));
+        Arrays.asList(b.split(",")).forEach(System.out::println);
     }
 }
