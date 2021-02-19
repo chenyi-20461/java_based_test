@@ -15,4 +15,9 @@ public class TestServiceImpl implements TestService {
         return testCommand.getA() ? "你输入了正确的数字" + testCommand.getA()
                 : "你输入了错误的数字" + testCommand.getA();
     }
+
+    @Override
+    public String doTestString(String a) {
+        return null;
+    }
 }

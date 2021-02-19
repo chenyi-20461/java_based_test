@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -24,5 +25,10 @@ public class TestController {
     @RequestMapping(value = "/test1",method = RequestMethod.POST)
     public String test(@RequestBody TestCommand testCommand) {
        return testService.doTestBoolean(testCommand);
+    }
+
+    @RequestMapping(value = "/test1",method = RequestMethod.POST)
+    public String testGet(@RequestParam String a) {
+        return testService.doTestString(a);
     }
 }

@@ -10,4 +10,11 @@ public interface TestService {
      * @return 返回测试字符串
      */
     String doTestBoolean(TestCommand testCommand);
+
+    /**
+     * 测试字符串.
+     * @param a 参数字符串
+     * @return
+     */
+    String doTestString(String a);
 }
