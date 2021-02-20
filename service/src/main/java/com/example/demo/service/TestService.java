@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.command.EasyCommand;
 import com.example.demo.domain.command.TestCommand;
+import com.example.demo.domain.vo.EasyVo;
 
 public interface TestService {
     /**
@@ -13,8 +15,17 @@ public interface TestService {
 
     /**
      * 测试字符串.
+     *
      * @param a 参数字符串
      * @return
      */
     String doTestString(String a);
+
+    /**
+     * 测试复杂参数.
+     *
+     * @param easyCommand 简单命令
+     * @return 简单返回结果
+     */
+    EasyVo doEasyCommand(EasyCommand easyCommand);
 }
