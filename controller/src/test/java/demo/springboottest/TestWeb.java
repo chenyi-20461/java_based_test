@@ -2,10 +2,8 @@ package demo.springboottest;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.DemoApplication;
-import com.example.demo.domain.command.EasyCommand;
-import com.example.demo.domain.command.TestCommand;
 import com.example.demo.domain.vo.EasyVo;
-import com.sun.jdi.VoidType;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +25,6 @@ import java.net.Inet4Address;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 测试springBootTest接口
