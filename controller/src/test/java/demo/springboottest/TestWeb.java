@@ -1,7 +1,7 @@
 package demo.springboottest;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.DemoApplication;
+import com.example.demo.Application;
 import com.example.demo.domain.vo.EasyVo;
 
 import org.junit.Before;
@@ -31,7 +31,7 @@ import java.util.HashMap;
  */
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = DemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TestWeb {
     /**
      * Spring boot 获取当前启动端口和IP.

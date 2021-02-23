@@ -38,7 +38,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>demo-controller</finalName>
+        <finalName>demo-server</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

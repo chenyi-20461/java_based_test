@@ -58,7 +58,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <build>
-        <finalName>demo</finalName>
-    </build>
+
 </project>
