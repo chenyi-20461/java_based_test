@@ -6,10 +6,14 @@ import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.FileOutConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.ITypeConvert;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.TemplateConfig;
+import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
+import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
@@ -46,10 +50,13 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
+
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("chenYi");
         gc.setOpen(false);
-        gc.setEntityName("base%s");
+        gc.setEntityName("Base%s");
+        gc.setBaseColumnList(true);
+        gc.setBaseResultMap(true);
         gc.setSwagger2(true); //实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
 
@@ -65,7 +72,8 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.baomidou.ant");
+        pc.setParent("com.bk");
+        pc.setEntity("model.base");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -93,6 +101,18 @@ public class CodeGenerator {
             }
 
         });
+        //类型转换
+        dsc.setTypeConvert(new ITypeConvert() {
+            @Override
+            public IColumnType processTypeConvert(GlobalConfig globalConfig, String fieldType) {
+                String t = fieldType.toLowerCase();
+                if (t.contains("datetime")) {
+                    return DbColumnType.DATE;
+                }
+                //其它字段采用默认转换（非mysql数据库可以使用其它默认的数据库转换器）
+                return new MySqlTypeConvert().processTypeConvert(globalConfig, fieldType);
+            }
+        });
         /*
         cfg.setFileCreate(new IFileCreate() {
             @Override
@@ -116,9 +136,9 @@ public class CodeGenerator {
 
         // 配置自定义输出模板
         //指定自定义模板路径，注意不要带上.ftl/.vm, 会根据使用的模板引擎自动识别
-        // templateConfig.setEntity("templates/entity2.java");
-        // templateConfig.setService();
-        // templateConfig.setController();
+//        templateConfig.setEntity("templates/entity2.java");
+//        templateConfig.setService("/templates/mybatis/entity.java");
+//        templateConfig.setController("/templates/mybatis/service.java");
 
         templateConfig.setXml(null);
         mpg.setTemplate(templateConfig);
@@ -127,17 +147,18 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setTablePrefix("Base");
+//        strategy.setTablePrefix("Base");
 //        strategy.setSuperEntityClass("你自己的父类实体,没有就不用设置!");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         // 公共父类
 //        strategy.setSuperControllerClass("你自己的父类控制器,没有就不用设置!");
         // 写于父类中的公共字段
-        strategy.setSuperEntityColumns("id");
+//        strategy.setSuperEntityColumns("id");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
+        strategy.setEntityBooleanColumnRemoveIsPrefix(true);
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
