@@ -7,10 +7,28 @@ import com.example.demo.domain.testmodel.classinherit.Uncle;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * lambok的测试
  */
 public class LambokTest {
+    /**
+     * list
+     * list能改变
+     */
+    @Test
+    public void testList() {
+        List newList = new ArrayList();
+        List list = new ArrayList();
+        list.add("1");
+        list.forEach(a -> newList.add(1));
+        System.out.println(newList);
+    }
+
+
     /**
      * 默认的buildDefault来构建默认值
      */
@@ -60,17 +78,15 @@ public class LambokTest {
 
     /**
      * @SneakyThrows.
-     *
      * @SneakyThrows就是为了消除模板话的try catch代码
      * 编译后的代码
-     *     @Test
-     *     public void testAttribute2() {
-     *         try {
-     *             Uncle var1 = Uncle.builder().build();
-     *         } catch (Throwable var2) {
-     *             throw var2;
-     *         }
-     *     }
+     * @Test public void testAttribute2() {
+     * try {
+     * Uncle var1 = Uncle.builder().build();
+     * } catch (Throwable var2) {
+     * throw var2;
+     * }
+     * }
      */
     @SneakyThrows
     @Test

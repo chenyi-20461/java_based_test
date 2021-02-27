@@ -1,3 +1,4 @@
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -58,6 +59,7 @@ public class CodeGenerator {
         gc.setBaseColumnList(true);
         gc.setBaseResultMap(true);
         gc.setSwagger2(true); //实体属性 Swagger2 注解
+        gc.setIdType(IdType.AUTO);
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
