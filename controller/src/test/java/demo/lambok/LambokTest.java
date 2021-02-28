@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * lambok的测试
@@ -26,6 +27,14 @@ public class LambokTest {
         list.add("1");
         list.forEach(a -> newList.add(1));
         System.out.println(newList);
+
+        AtomicReference<Boolean> JudgeAuth = new AtomicReference<>(false);
+        list.forEach(a -> {
+            if ("1".equals(a)) {
+                JudgeAuth.set(true);
+            }
+        });
+        System.out.println(JudgeAuth.get());
     }
 
 
