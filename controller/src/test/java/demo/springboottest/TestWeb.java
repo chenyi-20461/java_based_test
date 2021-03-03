@@ -2,7 +2,7 @@ package demo.springboottest;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Application;
-import com.example.demo.domain.vo.EasyVo;
+import com.example.demo.vo.EasyVo;
 
 import org.junit.Before;
 import org.junit.Test;

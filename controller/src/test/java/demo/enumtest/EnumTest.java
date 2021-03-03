@@ -1,7 +1,7 @@
 package demo.enumtest;
 
-import com.example.demo.domain.constant.AttributeEnum;
-import com.example.demo.domain.constant.TestEnum;
+import com.example.demo.constant.AttributeEnum;
+import com.example.demo.constant.TestEnum;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -25,7 +25,7 @@ public class EnumTest {
      */
     @Test
     public void test2() {
-        System.out.println(TestEnum.valueOf("1"));
+        System.out.println(TestEnum.valueOf("FANG_XUN_TONG"));
     }
 
     /**

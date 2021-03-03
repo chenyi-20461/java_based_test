@@ -1,7 +1,7 @@
 package demo.baseclass;
 
-import com.example.demo.domain.model.Person;
-import com.example.demo.domain.model.compare.Dog;
+import com.example.demo.model.Person;
+import com.example.demo.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

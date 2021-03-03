@@ -1,7 +1,7 @@
 package demo.base.abstracttest;
 
-import com.example.demo.domain.model.abstractclass.AbstractAnimal;
-import com.example.demo.domain.model.abstractclass.animalImpl.GoodDog;
+import com.example.demo.model.abstractclass.AbstractAnimal;
+import com.example.demo.model.abstractclass.animalImpl.GoodDog;
 
 /**
  * 抽象类测试

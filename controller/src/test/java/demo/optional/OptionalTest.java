@@ -1,7 +1,7 @@
 package demo.optional;
 
-import com.example.demo.domain.model.Person;
-import com.example.demo.domain.model.son.Son;
+import com.example.demo.model.Person;
+import com.example.demo.model.son.Son;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;

@@ -1,6 +1,6 @@
 package demo.base;
 
-import com.example.demo.domain.model.son.Son;
+import com.example.demo.model.son.Son;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 

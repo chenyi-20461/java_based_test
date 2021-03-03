@@ -1,10 +1,10 @@
 package demo.base.paramtest;
 
-import com.example.demo.domain.model.Generic;
-import com.example.demo.domain.model.Person;
-import com.example.demo.domain.model.compare.Dog;
-import com.example.demo.domain.model.son.Son;
-import com.example.demo.domain.model.son.grandson.GrandSon;
+import com.example.demo.model.Generic;
+import com.example.demo.model.Person;
+import com.example.demo.model.compare.Dog;
+import com.example.demo.model.son.Son;
+import com.example.demo.model.son.grandson.GrandSon;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.Stream;

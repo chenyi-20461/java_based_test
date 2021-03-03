@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.command.EasyCommand;
-import com.example.demo.domain.command.TestCommand;
-import com.example.demo.domain.vo.EasyVo;
+import com.example.demo.command.EasyCommand;
+import com.example.demo.command.TestCommand;
+import com.example.demo.vo.EasyVo;
 import com.example.demo.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.command.EasyCommand;
-import com.example.demo.domain.command.TestCommand;
-import com.example.demo.domain.vo.EasyVo;
+import com.example.demo.command.EasyCommand;
+import com.example.demo.command.TestCommand;
+import com.example.demo.vo.EasyVo;
 
 public interface TestService {
     /**

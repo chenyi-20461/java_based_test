@@ -1,8 +1,8 @@
 package demo.beanutil;
 
 import com.alibaba.fastjson.JSON;
-import com.example.demo.domain.model.Person;
-import com.example.demo.domain.model.compare.Dog;
+import com.example.demo.model.Person;
+import com.example.demo.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 

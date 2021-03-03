@@ -1,6 +1,6 @@
 package demo.streamTest;
 
-import com.example.demo.domain.model.compare.Dog;
+import com.example.demo.model.compare.Dog;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 

@@ -1,9 +1,9 @@
 package demo.jsontest;
 
 import com.alibaba.fastjson.JSON;
-import com.example.demo.domain.model.Person;
-import com.example.demo.domain.model.compare.Dog;
-import com.example.demo.domain.model.jsontest.JsonTestOne;
+import com.example.demo.model.Person;
+import com.example.demo.model.compare.Dog;
+import com.example.demo.model.jsontest.JsonTestOne;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

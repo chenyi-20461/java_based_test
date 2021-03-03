@@ -1,7 +1,10 @@
 package demo.base;
 
-import com.example.demo.domain.model.compare.Dog;
+import com.example.demo.model.Person;
+import com.example.demo.model.compare.Dog;
+import com.example.demo.model.son.Son;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -229,6 +232,15 @@ public class BaseTest {
         arrayList.forEach(System.out::println);
         System.out.println(arrayList);
         System.out.println(dog.toString()+dog1.toString()+dog2.toString());
+    }
+
+    @Test
+    public void testSon() {
+        Person person = Person.builder().name("zs").build();
+        Son son = Son.builder().sonName("zs").build();
+        BeanUtils.copyProperties(person, son);
+        System.out.println(son);
+        BeanUtils.copyProperties(null, son);
     }
 
 }

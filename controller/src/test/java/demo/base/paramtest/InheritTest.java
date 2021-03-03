@@ -1,8 +1,8 @@
 package demo.base.paramtest;
 
-import com.example.demo.domain.testmodel.classinherit.Dad;
-import com.example.demo.domain.testmodel.classinherit.Grandchild;
-import com.example.demo.domain.testmodel.interinherit.TestParamImpl;
+import com.example.demo.testmodel.classinherit.Dad;
+import com.example.demo.testmodel.classinherit.Grandchild;
+import com.example.demo.testmodel.interinherit.TestParamImpl;
 import org.junit.jupiter.api.Test;
 
 /**

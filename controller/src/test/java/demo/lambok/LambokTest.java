@@ -1,14 +1,13 @@
 package demo.lambok;
 
-import com.example.demo.domain.model.Person;
-import com.example.demo.domain.model.son.Son;
-import com.example.demo.domain.testmodel.classinherit.Dad;
-import com.example.demo.domain.testmodel.classinherit.Uncle;
+import com.example.demo.model.Person;
+import com.example.demo.model.son.Son;
+import com.example.demo.testmodel.classinherit.Dad;
+import com.example.demo.testmodel.classinherit.Uncle;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 

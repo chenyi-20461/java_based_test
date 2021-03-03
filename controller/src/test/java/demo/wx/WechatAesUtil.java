@@ -103,9 +103,9 @@ public class WechatAesUtil {
     }
 
     public static void main(String[] args) throws JsonProcessingException {
-        String encryptedData = "28kQbzeLhMcn8Oseq/3dleYg0x63l/lJEcRl5vm97iP1NtfU/+zJ7gbkp8tIpEHejK1iv/9tezUOLXiOSUFEZs64BvRMdjnws1dAd+rcfrD/EzYYW5FV4NfA5SCrcz33E8W+ID8dY4vt8cwnDgU12xYITFH0SlyepoaVheosLEUY5SYwk5vbK+ektXFhVEIl2+9tWbc8NKSIBS2foMVINg==";
-        String sessionKey = "imkHSQRgGODIdZKYFwut5w==";
-        String iv = "OJaJuvWqbbpu6JMiLec2EQ==";
+        String encryptedData = "b3mQssbf8ogjstsahJkztou21nM5orENcrEitwEUUWmyFl61YIal2SaLHhBITaw6mbzKLkRvvmEYVfyW77z7hdbYb8zCKTWldBz4+FLZHZAKYZIrFaYl9tDrlf8/1Qf9+LPOzc2QGv/NpHf8TVioGfBbCAWmWEJZJS8TkYPc26gzJeX2JdCd7wn4lsJuRTgoWFlnjPIi8mWhCreyRr75DQ==";
+        String sessionKey = "+jxwKV/OH7xNbVuLKTurxQ==";
+        String iv = "6eXWCeQL1/0ZqxIFwtrmCA==";
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writeValueAsString(WechatAesUtil.decryptEncryptedData(encryptedData, sessionKey, iv)));
     }

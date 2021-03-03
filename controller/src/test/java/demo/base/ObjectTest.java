@@ -1,7 +1,7 @@
 package demo.base;
 
-import com.example.demo.domain.model.testobject.Object1;
-import com.example.demo.domain.model.testobject.Object2;
+import com.example.demo.model.testobject.Object1;
+import com.example.demo.model.testobject.Object2;
 import org.junit.jupiter.api.Test;
 
 import java.util.Objects;

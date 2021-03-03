@@ -1,6 +1,6 @@
 package demo.base;
 
-import com.example.demo.domain.model.compare.Dog;
+import com.example.demo.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -9,6 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringTest {
+    //   判断字符串保存另一个字符串
+    @Test
+    public void test() {
+        System.out.println("abc".charAt(-22));
+    }
+
     //   判断字符串保存另一个字符串
     @Test
     public void test1() {

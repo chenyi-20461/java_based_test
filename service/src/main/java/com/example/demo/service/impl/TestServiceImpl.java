@@ -1,13 +1,10 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.domain.command.EasyCommand;
-import com.example.demo.domain.command.TestCommand;
-import com.example.demo.domain.vo.EasyVo;
+import com.example.demo.command.EasyCommand;
+import com.example.demo.command.TestCommand;
+import com.example.demo.vo.EasyVo;
 import com.example.demo.service.TestService;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.math.BigDecimal;
 
 /**
  * 用于测试前端传入的boolean值.

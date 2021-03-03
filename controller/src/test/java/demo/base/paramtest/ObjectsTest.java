@@ -1,6 +1,6 @@
 package demo.base.paramtest;
 
-import com.example.demo.domain.model.compare.Dog;
+import com.example.demo.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.Stream;
