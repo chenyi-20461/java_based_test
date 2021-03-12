@@ -74,4 +74,12 @@ public class OptionalTest {
         System.out.println("测试orElseThrow错误:" + optional.orElseThrow(() -> new Exception("无值")));
     }
 
+    @Test
+    public void testComplex(){
+        Person person = Person.builder().age(1).name("zs").build();
+        Integer a = 1;
+        System.out.println(Optional.ofNullable(a).map(Object::toString).orElse(null));
+        System.out.println(!Optional.ofNullable(person.getName()).orElse("-1").equals("zs"));
+    }
+
 }

@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class BaseTest {
@@ -242,5 +244,16 @@ public class BaseTest {
         System.out.println(son);
         BeanUtils.copyProperties(null, son);
     }
+
+    @Test
+    public void testIfTwo() {
+        String a = "1";
+        if(a.equals("1"))
+            return;
+
+        System.out.println(2);
+    }
+
+
 
 }
