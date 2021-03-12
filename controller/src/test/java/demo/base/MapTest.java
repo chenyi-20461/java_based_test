@@ -1,8 +1,10 @@
 package demo.base;
 
-import com.example.demo.model.Person;
+import com.example.demo.student.model.Student;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,21 +13,22 @@ import java.util.Map;
 
 public class MapTest {
 
-    List<Person> personList;
+    List<Student> students;
 
-    @Before
-    public void load() {
-        personList = new ArrayList<>();
-        personList.add(Person.builder().age(1).name("zs1").build());
-        personList.add(Person.builder().age(1).name("zs2").build());
-        personList.add(Person.builder().age(2).name("zs3").build());
-        personList.add(Person.builder().age(3).name("zs4").build());
-        personList.add(Person.builder().age(3).name("zs5").build());
-        personList.add(Person.builder().age(3).name("-").build());
+    @BeforeEach
+    public void load1() {
+        students = new ArrayList<>();
+        students.add(Student.builder().sid("1111").score(80).build());
+        students.add(Student.builder().sid("1111").score(70).build());
+        students.add(Student.builder().sid("2222").score(90).build());
+        students.add(Student.builder().sid("2222").score(100).build());
+        students.add(Student.builder().sid("3333").score(60).build());
+        students.add(Student.builder().sid("3333").score(90).build());
+        System.out.println(students);
     }
 
     @Test
-    public void testMap(){
+    public void testMap() {
         Map<String, Integer> map = new HashMap<>();
         map.put("name", 1);
         map.merge("name", 1, (oldValue, newValue) -> oldValue + newValue);
@@ -34,12 +37,12 @@ public class MapTest {
     }
 
     /**
-     *传统统计分数
+     * 传统统计分数
      */
     @Test
-    public void testMapMerger(){
-        Map<Integer, Integer> map = new HashMap<>();
-        for (StudentScore studentScore : list) {
+    public void testMapMerger() {
+        Map<String, Integer> map = new HashMap<>();
+        for (Student studentScore : students) {
             if (map.containsKey(studentScore.getSid())) {
                 map.put(studentScore.getSid(),
                         map.get(studentScore.getSid()) + studentScore.getScore());
@@ -47,6 +50,6 @@ public class MapTest {
                 map.put(studentScore.getSid(), studentScore.getScore());
             }
         }
-        return map;
+        System.out.println(map);
     }
 }

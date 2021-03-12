@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Scanner;
 
+/**
+ * import org.junit.jupiter.api.BeforeEach;和import org.junit.jupiter.api.Test;使用
+ * import org.junit.Before;和import org.junit.Test;一起使用
+ */
 public class baseJunit {
 
      /**
