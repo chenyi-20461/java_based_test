@@ -1,6 +1,7 @@
 package demo.base;
 
 import com.example.demo.student.model.Student;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class MapTest {
 
     List<Student> students;
@@ -51,5 +53,17 @@ public class MapTest {
             }
         }
         System.out.println(map);
+    }
+
+    /**
+     * 新的传统统计分数
+     */
+    @Test
+    public void testMapMerger1() {
+        Map<String, Integer> map = new HashMap();
+        students.forEach(student -> map.merge(student.getSid(), student.getScore(), Integer::sum));
+        Map<String, Integer> map1 = new HashMap();
+        students.forEach(student -> map1.merge(student.getSid(), student.getScore(), (a, b) -> a + b));
+        System.out.println("map:" + map + "map1" + map1);
     }
 }
