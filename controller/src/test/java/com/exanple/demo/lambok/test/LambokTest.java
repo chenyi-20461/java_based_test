@@ -1,4 +1,4 @@
-package com.exanple.lambok.test;
+package com.exanple.demo.lambok.test;
 
 import com.example.demo.model.Person;
 import com.example.demo.model.son.Son;

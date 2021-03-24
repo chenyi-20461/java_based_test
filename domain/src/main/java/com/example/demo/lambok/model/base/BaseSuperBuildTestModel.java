@@ -1,4 +1,4 @@
-package com.example.lambok.model.base;
+package com.example.demo.lambok.model.base;
 
 import lombok.AccessLevel;
 import lombok.Data;

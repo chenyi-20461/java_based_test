@@ -1,6 +1,6 @@
-package com.example.lambok.model;
+package com.example.demo.lambok.model;
 
-import com.example.lambok.model.base.BaseSuperBuildTestModel;
+import com.example.demo.lambok.model.base.BaseSuperBuildTestModel;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;

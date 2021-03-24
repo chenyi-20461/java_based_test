@@ -1,11 +1,9 @@
-package com.example.demo.entity;
+package com.example.demo.company.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package demo.springboottest;
+package com.exanple.demo.springboottest.test;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Application;

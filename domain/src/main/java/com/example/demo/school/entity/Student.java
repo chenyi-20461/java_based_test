@@ -1,4 +1,4 @@
-package com.example.demo.student.model;
+package com.example.demo.school.entity;
 
 import lombok.Builder;
 import lombok.Data;
@@ -8,8 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * catalog表示库名
+ */
 @Entity
-@Table(name = "student", catalog = "学生表")
+@Table(name = "student", catalog = "demo")
 @Data
 @Builder
 public class Student {

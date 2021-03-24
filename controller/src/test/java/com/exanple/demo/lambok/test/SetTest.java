@@ -1,10 +1,10 @@
-package com.exanple.lambok.test;
+package com.exanple.demo.lambok.test;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.lambok.model.BuildTestModel;
-import com.example.lambok.model.NoSetModelTest;
-import com.example.lambok.model.SetModelTest;
-import com.example.lambok.model.SuperBuildTestModel;
+import com.example.demo.lambok.model.BuildTestModel;
+import com.example.demo.lambok.model.NoSetModelTest;
+import com.example.demo.lambok.model.SetModelTest;
+import com.example.demo.lambok.model.SuperBuildTestModel;
 import org.junit.jupiter.api.Test;
 
 public class SetTest {

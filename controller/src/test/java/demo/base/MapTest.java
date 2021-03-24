@@ -1,8 +1,7 @@
 package demo.base;
 
-import com.example.demo.student.model.Student;
+import com.example.demo.school.entity.Student;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
