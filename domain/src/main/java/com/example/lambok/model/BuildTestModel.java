@@ -14,4 +14,11 @@ import lombok.Setter;
 public class BuildTestModel {
     private String name;
     private String tramp;
+
+    public static BuildTestModel buildByNameAndTramp(String name, String tramp) {
+        return BuildTestModel.builder()
+                .name(name)
+                .tramp(tramp)
+                .build();
+    }
 }

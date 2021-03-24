@@ -1,7 +1,10 @@
 package com.exanple.lambok.test;
 
+import com.alibaba.fastjson.JSONObject;
+import com.example.lambok.model.BuildTestModel;
 import com.example.lambok.model.NoSetModelTest;
 import com.example.lambok.model.SetModelTest;
+import com.example.lambok.model.SuperBuildTestModel;
 import org.junit.jupiter.api.Test;
 
 public class SetTest {
@@ -39,5 +42,19 @@ public class SetTest {
 //                .name("清子")
 //                .tramp("金")
 //                .build();
+//                BuildTestModel buildTestModel = new BuildTestModel();
+        BuildTestModel buildTestModel = BuildTestModel.buildByNameAndTramp("清子","金");
+        System.out.println(buildTestModel);
+    }
+
+
+    /**
+     * 测试build的test方法的protect,加上protect不能在其他类访问.
+     *
+     */
+    @Test
+    public void four(){
+        SuperBuildTestModel superBuildTestModel = SuperBuildTestModel.buildByName("zs");
+        System.out.println(JSONObject.toJSONString(superBuildTestModel));
     }
 }
