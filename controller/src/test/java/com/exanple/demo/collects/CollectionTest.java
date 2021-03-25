@@ -1,4 +1,4 @@
-package demo.collects;
+package com.exanple.demo.collects;
 
 import com.example.demo.model.Person;
 import org.junit.Before;
@@ -122,12 +122,13 @@ public class CollectionTest {
     }
 
     /**
-     * joining.
+     * MapMerger.
      * 将集合中的字符串映射然后转为连接字符串.
      */
     @Test
     public void testMapMerger() {
-
+        List test1 = personList.stream().collect(Collectors.mapping(Person::getName,Collectors.toList()));
+        System.out.println("test1:" + test1);
     }
 
     /**
