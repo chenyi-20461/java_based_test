@@ -7,6 +7,15 @@ import com.example.demo.lambok.model.SetModelTest;
 import com.example.demo.lambok.model.SuperBuildTestModel;
 import org.junit.jupiter.api.Test;
 
+/**
+ *@Data
+ * @Setter(lombok.AccessLevel.PROTECTED)
+ * @Builder(access = lombok.AccessLevel.PROTECTED)
+ * @NoArgsConstructor(access = lombok.AccessLevel.PROTECTED)
+ * @AllArgsConstructor(access = lombok.AccessLevel.PROTECTED)
+ * 均可以生效
+ * 但是继承关系的build无法生效
+ */
 public class SetTest {
 
     /**
@@ -49,7 +58,7 @@ public class SetTest {
 
 
     /**
-     * 测试build的test方法的protect,加上protect不能在其他类访问.
+     * 继承关系中其他类能访问.
      *
      */
     @Test
