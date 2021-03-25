@@ -39,7 +39,6 @@ public class TestService {
     @Test
     public void testSingleService() {
         System.out.println(amuseService.amuse());
-        ;
     }
 
     @Test
