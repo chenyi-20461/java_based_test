@@ -1,10 +1,16 @@
 package demo.base.ExceptionTest;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.example.demo.model.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 @Slf4j
 public class ExceptionTest {
+
     /**
      * 测试异常的属性
      */
@@ -47,6 +53,41 @@ public class ExceptionTest {
         testCheck();
         System.out.println(1);
     }
+
+    @Test
+    public void get1() {
+        String a ="11";
+        List<Person> people = null;
+        try {
+            people = JSON.parseArray(a,Person.class);
+        } catch (Exception e) {
+        }
+        System.out.println(people);
+    }
+
+    @Test
+    public void get2() {
+        String a ="11";
+        String b = null;
+        try {
+            JSONObject jsonObject = (JSONObject) JSONObject.toJSON(a);
+            System.out.println(jsonObject+"111");
+            b = JSON.parseObject(JSON.toJSONString(jsonObject), String.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Person person = Person.builder().name("1").build();
+            JSONObject jsonObject = (JSONObject) JSONObject.toJSON(person);
+            System.out.println(jsonObject+"111");
+            Person person1  = JSON.parseObject(JSON.toJSONString(jsonObject), Person.class);
+            System.out.println(person1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(b);
+    }
+
 
 
 }

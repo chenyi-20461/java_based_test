@@ -1,5 +1,6 @@
 package demo.base;
 
+import com.alibaba.fastjson.JSON;
 import com.example.demo.school.entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -64,5 +65,18 @@ public class MapTest {
         Map<String, Integer> map1 = new HashMap();
         students.forEach(student -> map1.merge(student.getSid(), student.getScore(), (a, b) -> a + b));
         System.out.println("map:" + map + "map1" + map1);
+    }
+
+
+    /**
+     * 新的传统统计分数
+     */
+    @Test
+    public void testMapMerger2() {
+        String[] a={"1","2"};
+        Map<String,String> map = new HashMap<>();
+        map.put(a[0],"1");
+        System.out.println(map);
+        System.out.println(JSON.toJSONString(map));
     }
 }

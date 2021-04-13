@@ -338,6 +338,8 @@ public class TerminalTest {
         Dog dog1 = Dog.builder().age(12).name("z1").build();
         Dog dog2 = Dog.builder().age(11).name("zq").build();
         Optional<Dog> b = Stream.of(dog, dog1, dog2).findFirst();
+        Optional<Dog> c = Stream.of(dog, dog1, dog2).filter(a->a.getAge()==13).findFirst();
+        System.out.println(c);
         System.out.println(b.get());
     }
 

@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 public class CollectionTest {
     List<Person> personList;
 
+    List<Person> personListForGroupAnd;
+
     @Before
     public void load() {
         personList = new ArrayList<>();
@@ -26,8 +28,19 @@ public class CollectionTest {
         personList.add(Person.builder().age(3).name("zs4").build());
         personList.add(Person.builder().age(3).name("zs5").build());
         personList.add(Person.builder().age(3).name("-").build());
+        personListForGroupAnd = new ArrayList<>();
+        personListForGroupAnd.add(Person.builder().age(1).name("zs1").build());
+        personListForGroupAnd.add(Person.builder().age(1).name("zs2").build());
+        personListForGroupAnd.add(Person.builder().age(2).name("zs3").build());
+        personListForGroupAnd.add(Person.builder().age(3).name("zs4").build());
+        personListForGroupAnd.add(Person.builder().age(3).name("zs5").build());
+        personListForGroupAnd.add(Person.builder().age(3).name("-").build());
     }
 
+
+    /**
+     * 
+     */
     @Test
     public void test1() {
         List<Person> personArrayList = new ArrayList<>();
@@ -46,13 +59,15 @@ public class CollectionTest {
         System.out.println(list);
     }
 
+
     /**
      * 分组
+     * 分组成一个map，每个键对应于一个list
      */
     @Test
     public void testGroup() {
         Map map = personList.stream().collect(Collectors.groupingBy(Person::getAge));
-        System.out.println(map);
+        System.out.println(((List) map.get(1)).get(0));
     }
 
 
@@ -117,19 +132,53 @@ public class CollectionTest {
         System.out.println("test1:" + test1);
         String test2 = personList.stream().map(Person::getName).collect(Collectors.joining("&&"));
         System.out.println("test2:" + test2);
-        String test3 = personList.stream().map(Person::getName).collect(Collectors.joining("&&","-","#"));
+        String test3 = personList.stream().map(Person::getName).collect(Collectors.joining("&&", "-", "#"));
         System.out.println("test3:" + test3);
     }
 
     /**
-     * MapMerger.
-     * 将集合中的字符串映射然后转为连接字符串.
+     * Collectors.mapping.
+     * 将集合中元素做操作映射.
      */
     @Test
     public void testMapMerger() {
-        List test1 = personList.stream().collect(Collectors.mapping(Person::getName,Collectors.toList()));
+        List test1 = personList.stream().collect(Collectors.mapping(Person::getName, Collectors.toList()));
         System.out.println("test1:" + test1);
     }
+
+    /**
+     * Collectors.flatMapping.
+     * 将集合中元素的stream做操作，然后返回.
+     */
+    @Test
+    public void testFlatMapping() {
+        List<List<Person>> multilayerList = new ArrayList<>();
+        multilayerList.add(personList);
+        multilayerList.add(personList);
+        List test1 = multilayerList.stream().collect(Collectors.flatMapping(people -> people.stream().filter(person -> person.getAge() == 2), Collectors.toList()));
+        System.out.println("test1:" + test1 + "size" + test1.size());
+    }
+
+    /**
+     * Collectors.filtering.
+     * 将集合中元素的stream做判断.
+     */
+    @Test
+    public void testFiltering() {
+        List test1 = personList.stream().collect(Collectors.filtering(person -> person.getAge() == 2, Collectors.toList()));
+        System.out.println("test1:" + test1 + "size" + test1.size());
+    }
+
+    /**
+     * Collectors.collectingAndThen.
+     * 将集合中元素的stream做聚合，然后对整个集合做操作.
+     */
+    @Test
+    public void testCollectingAndThen() {
+        int test1 = personList.stream().collect(Collectors.collectingAndThen(Collectors.toList(), List::size));
+        System.out.println("test1:" + test1);
+    }
+
 
     /**
      * 截取.
