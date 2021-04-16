@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class BaseTest {
@@ -243,6 +245,9 @@ public class BaseTest {
         BeanUtils.copyProperties(null, son);
     }
 
+    /**
+     * java的return在if语句中能起效.
+     */
     @Test
     public void testIfTwo() {
         String a = "1";
@@ -251,6 +256,19 @@ public class BaseTest {
 
         System.out.println(2);
     }
+
+    @Test
+    public void testFor() {
+        String a = "1";
+        List<String> list = Collections.singletonList(a);
+        for (Object obj:list){
+            if(obj.equals("1")){
+                return;
+            }
+        }
+        System.out.println(2);
+    }
+
 
 
 }
