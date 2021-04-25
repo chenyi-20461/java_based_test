@@ -257,6 +257,9 @@ public class BaseTest {
         System.out.println(2);
     }
 
+    /**
+     * for循环里面的返回.
+     */
     @Test
     public void testFor() {
         String a = "1";
