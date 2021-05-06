@@ -1,4 +1,4 @@
-package com.exanple.demo.collects;
+package com.exanple.demo.collects.test;
 
 import com.example.demo.model.Person;
 import org.junit.Before;
