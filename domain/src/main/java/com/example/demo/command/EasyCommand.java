@@ -1,5 +1,6 @@
 package com.example.demo.command;
 
+import com.example.demo.constant.TestEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,4 +32,9 @@ public class EasyCommand {
      * 内嵌其他command.
      */
     private Boolean booleanCommand;
+    /**
+     * 内嵌其他command.
+     */
+    private TestEnum testEnum;
+
 }
