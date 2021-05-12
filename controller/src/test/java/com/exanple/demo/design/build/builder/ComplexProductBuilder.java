@@ -1,9 +1,36 @@
 package com.exanple.demo.design.build.builder;
 
-public interface ComplexProductBuilder {
-    public void buildPartA();
+import com.exanple.demo.design.build.product.ComplexProduct;
 
-    public void buildPartB();
+public abstract class ComplexProductBuilder {
 
-    public void buildPartC();
+    protected ComplexProduct complexProduct = new ComplexProduct();
+
+    /**
+     * 构建部分A.
+     */
+    public abstract void buildPartA();
+
+    /**
+     * 构建部分B.
+     */
+    public abstract void buildPartB();
+
+    /**
+     * 构建部分c.
+     */
+    public abstract void buildPartC();
+
+
+    public ComplexProduct getComplexProduct() {
+        return complexProduct;
+    }
+
+    public ComplexProduct getCompleteProduct() {
+        buildPartA();
+        buildPartB();
+        buildPartC();
+        return complexProduct;
+    }
+
 }

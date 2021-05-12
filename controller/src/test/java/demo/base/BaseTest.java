@@ -3,6 +3,7 @@ package demo.base;
 import com.example.demo.model.Person;
 import com.example.demo.model.compare.Dog;
 import com.example.demo.model.son.Son;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 
@@ -11,6 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+@Slf4j
 public class BaseTest {
     //    测试||和&&只判前面就能行,
     @Test
@@ -272,6 +274,20 @@ public class BaseTest {
         System.out.println(2);
     }
 
+
+    /**
+     * for循环里面的返回.
+     */
+    @Test
+    public void testExc() {
+        try {
+            int i = 0;
+            i= 1/i;
+        } catch (Exception e) {
+            log.error("公积金pdf不存在", e);
+            throw new RuntimeException( "公积金pdf不存在");
+        }
+    }
 
 
 }

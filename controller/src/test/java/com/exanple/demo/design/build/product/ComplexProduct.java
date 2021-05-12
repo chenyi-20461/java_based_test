@@ -13,4 +13,8 @@ public class ComplexProduct {
     private String partB;
 
     private String partC;
+
+    public void show() {
+        System.out.println(toString());
+    }
 }
