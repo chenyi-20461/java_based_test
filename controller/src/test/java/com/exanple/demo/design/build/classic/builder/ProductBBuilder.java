@@ -1,4 +1,4 @@
-package com.exanple.demo.design.build.builder;
+package com.exanple.demo.design.build.classic.builder;
 
 public class ProductBBuilder extends ComplexProductBuilder {
 

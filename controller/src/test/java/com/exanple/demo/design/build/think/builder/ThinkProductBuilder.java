@@ -1,6 +1,6 @@
 package com.exanple.demo.design.build.think.builder;
 
-import com.exanple.demo.design.build.product.ComplexProduct;
+import com.exanple.demo.design.build.classic.product.ComplexProduct;
 
 public abstract class ThinkProductBuilder {
 

@@ -1,8 +1,8 @@
-package com.exanple.demo.design.build.client;
+package com.exanple.demo.design.build.classic.client;
 
-import com.exanple.demo.design.build.builder.ComplexProductBuilder;
-import com.exanple.demo.design.build.builder.ProductABuilder;
-import com.exanple.demo.design.build.commander.old.Commander;
+import com.exanple.demo.design.build.classic.builder.ComplexProductBuilder;
+import com.exanple.demo.design.build.classic.builder.ProductABuilder;
+import com.exanple.demo.design.build.classic.old.Commander;
 import org.junit.Test;
 
 /**

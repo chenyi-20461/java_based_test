@@ -1,7 +1,7 @@
-package com.exanple.demo.design.build.commander.old;
+package com.exanple.demo.design.build.classic.old;
 
-import com.exanple.demo.design.build.builder.ComplexProductBuilder;
-import com.exanple.demo.design.build.product.ComplexProduct;
+import com.exanple.demo.design.build.classic.builder.ComplexProductBuilder;
+import com.exanple.demo.design.build.classic.product.ComplexProduct;
 
 /**
  * 指挥者

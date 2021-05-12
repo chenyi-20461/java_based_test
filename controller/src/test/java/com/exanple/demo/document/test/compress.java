@@ -44,7 +44,6 @@ public class compress {
             Scanner scanner = new Scanner(in, "GBK");
 //            while (scanner.hasNext()) {
             String s = scanner.nextLine();
-            System.out.println(s);
             String s1 = s.replace("\u0001", ",");
             System.out.println(s1.split(",").length);
             System.out.println(s1);

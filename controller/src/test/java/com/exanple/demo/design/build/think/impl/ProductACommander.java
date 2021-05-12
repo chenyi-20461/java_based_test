@@ -1,8 +1,8 @@
 package com.exanple.demo.design.build.think.impl;
 
-import com.exanple.demo.design.build.builder.ProductABuilder;
+import com.exanple.demo.design.build.classic.builder.ProductABuilder;
 import com.exanple.demo.design.build.think.ComplexProductCommander;
-import com.exanple.demo.design.build.product.ComplexProduct;
+import com.exanple.demo.design.build.classic.product.ComplexProduct;
 
 public class ProductACommander implements ComplexProductCommander {
 

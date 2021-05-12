@@ -1,6 +1,6 @@
-package com.exanple.demo.design.build.builder;
+package com.exanple.demo.design.build.classic.builder;
 
-import com.exanple.demo.design.build.product.ComplexProduct;
+import com.exanple.demo.design.build.classic.product.ComplexProduct;
 
 public abstract class ComplexProductBuilder {
 

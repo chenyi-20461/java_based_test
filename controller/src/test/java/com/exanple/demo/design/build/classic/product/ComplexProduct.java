@@ -1,4 +1,4 @@
-package com.exanple.demo.design.build.product;
+package com.exanple.demo.design.build.classic.product;
 
 import lombok.Data;
 
