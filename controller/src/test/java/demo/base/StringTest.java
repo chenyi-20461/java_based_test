@@ -113,4 +113,13 @@ public class StringTest {
         System.out.println(Arrays.toString(b.split(",")));
         Arrays.asList(b.split(",")).forEach(System.out::println);
     }
+
+    /**
+     * 测试字符串的equals为是否可以为空.
+     */
+    @Test
+    public void testString() {
+        String a = "1";
+        System.out.println(a.equals(null));
+    }
 }

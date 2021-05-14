@@ -276,7 +276,7 @@ public class BaseTest {
 
 
     /**
-     * for循环里面的返回.
+     * 打错误日志，同时抛出错误.
      */
     @Test
     public void testExc() {
@@ -288,6 +288,7 @@ public class BaseTest {
             throw new RuntimeException( "公积金pdf不存在");
         }
     }
+
 
 
 }
