@@ -1,10 +1,13 @@
 package demo.base;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.example.demo.model.compare.Dog;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -116,10 +119,25 @@ public class StringTest {
 
     /**
      * 测试字符串的equals为是否可以为空.
+     * 可以
      */
     @Test
     public void testString() {
         String a = "1";
         System.out.println(a.equals(null));
+    }
+
+    /**
+     * 测试字符串的equals为是否可以为空.
+     * 可以
+     */
+    @Test
+    public void test4() {
+        String a = "\"[{\"groupItemCode\":\"ProductCodeLQ_1\",\"name\":\"信用贷\"},{\"groupItemCode\":\"ProductCodeLQ_15A1\",\"name\":\"中普惠易贷-15A1\"}]\"";
+        String b = a.substring(1,a.length()-1);
+        System.out.println(b);
+        JSONArray jsonArray = JSON.parseArray(b);
+        System.out.println(((Map<String, String>) jsonArray.get(0)).get("name"));
+        System.out.println(((Map<String, String>) jsonArray.get(1)).get("name").split("-")[1]);
     }
 }
