@@ -36,6 +36,12 @@
             <version>1.56</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>inheritance</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>demo-server</finalName>

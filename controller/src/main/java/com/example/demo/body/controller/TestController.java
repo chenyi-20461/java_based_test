@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.body.controller;
 
 import com.example.demo.command.EasyCommand;
 import com.example.demo.command.TestCommand;
