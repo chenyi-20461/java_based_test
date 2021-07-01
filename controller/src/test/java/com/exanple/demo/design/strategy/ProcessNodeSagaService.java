@@ -4,6 +4,9 @@ import com.example.demo.command.EasyCommand;
 import com.example.demo.constant.TestEnum;
 import com.example.demo.vo.EasyVo;
 
+/**
+ * 这个集合了策略和做事的接口.
+ */
 public interface ProcessNodeSagaService {
     /**
      * 组合实现功能

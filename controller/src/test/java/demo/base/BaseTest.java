@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -235,7 +236,7 @@ public class BaseTest {
         arrayList.stream().forEach(dog3 -> dog3.setName("12"));
         arrayList.forEach(System.out::println);
         System.out.println(arrayList);
-        System.out.println(dog.toString()+dog1.toString()+dog2.toString());
+        System.out.println(dog.toString() + dog1.toString() + dog2.toString());
     }
 
     @Test
@@ -253,7 +254,7 @@ public class BaseTest {
     @Test
     public void testIfTwo() {
         String a = "1";
-        if(a.equals("1"))
+        if (a.equals("1"))
             return;
 
         System.out.println(2);
@@ -266,8 +267,8 @@ public class BaseTest {
     public void testFor() {
         String a = "1";
         List<String> list = Collections.singletonList(a);
-        for (Object obj:list){
-            if(obj.equals("1")){
+        for (Object obj : list) {
+            if (obj.equals("1")) {
                 return;
             }
         }
@@ -282,13 +283,21 @@ public class BaseTest {
     public void testExc() {
         try {
             int i = 0;
-            i= 1/i;
+            i = 1 / i;
         } catch (Exception e) {
             log.error("公积金pdf不存在", e);
-            throw new RuntimeException( "公积金pdf不存在");
+            throw new RuntimeException("公积金pdf不存在");
         }
     }
 
 
+    /**
+     * 测试bigDecimal的空指针.
+     */
+    @Test
+    public void testExc1() {
+        String a =null;
+        System.out.println(new BigDecimal(a));
+    }
 
 }
