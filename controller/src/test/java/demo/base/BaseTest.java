@@ -239,6 +239,9 @@ public class BaseTest {
         System.out.println(dog.toString() + dog1.toString() + dog2.toString());
     }
 
+    /**
+     * beanUtils的source不能为null
+     */
     @Test
     public void testSon() {
         Person person = Person.builder().name("zs").build();

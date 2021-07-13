@@ -26,6 +26,22 @@ public class CollectionTest {
 
     List<Person> personListForGroupAnd;
 
+    /**
+     * 统计每个年龄段的人的个数.
+     * <p>
+     * 实现技术. 先分组，然后计算个数
+     */
+    @Test
+    public void groupAndCount() {
+        Map<Integer, Integer> integerMap = personListForGroupAnd.stream().collect(Collectors.groupingBy(Person::getAge, Collectors.collectingAndThen(Collectors.toList(), List::size)));
+//        简化版本，因为不需要转成list求size，可以直接求size
+        Map<Integer, Long> integerMap1 = personListForGroupAnd.stream().collect(Collectors.groupingBy(Person::getAge, Collectors.counting()));
+        System.out.println(integerMap);
+        System.out.println(integerMap1);
+    }
+
+
+
     @Before
     public void load() {
         personList = new ArrayList<>();
@@ -44,19 +60,7 @@ public class CollectionTest {
         personListForGroupAnd.add(Person.builder().age(3).name("-").build());
     }
 
-    /**
-     * 统计每个年龄段的人的个数.
-     * <p>
-     * 实现技术. 先分组，然后计算个数
-     */
-    @Test
-    public void groupAndCount() {
-        Map<Integer, Integer> integerMap = personListForGroupAnd.stream().collect(Collectors.groupingBy(Person::getAge, Collectors.collectingAndThen(Collectors.toList(), List::size)));
-//        简化版本，因为不需要转成list求size，可以直接求size
-        Map<Integer, Long> integerMap1 = personListForGroupAnd.stream().collect(Collectors.groupingBy(Person::getAge, Collectors.counting()));
-        System.out.println(integerMap);
-        System.out.println(integerMap1);
-    }
+
 
 
     /**
