@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -125,6 +126,12 @@ public class StringTest {
     public void testString() {
         String a = "1";
         System.out.println(a.equals(null));
+        Integer b = 1;
+        Integer e = 30;
+        System.out.println(e != b);
+        boolean c = Objects.equals(b, 1);
+        System.out.println(c);
+        System.out.println(JSON.toJSONString(null));
     }
 
     /**

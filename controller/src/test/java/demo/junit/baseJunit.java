@@ -10,6 +10,8 @@ import java.util.Scanner;
  */
 public class baseJunit {
 
+
+
      /**
      * @Test标记的函数时，在run窗口无法输入数据
       * 定义

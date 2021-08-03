@@ -4,17 +4,35 @@ import com.example.demo.model.Person;
 import com.example.demo.model.son.Son;
 import com.example.demo.testmodel.classinherit.Dad;
 import com.example.demo.testmodel.classinherit.Uncle;
+import lombok.Data;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * lambok的测试
  */
+@Data
 public class LambokTest {
+
+    public static Map<String, Integer> tagsTransMap = new HashMap<>();
+
+    /**
+     * 测试静态变量有没有get和set方法.
+     *
+     * 没有get和set方法
+     */
+    @Test
+    public void testStatic() {
+        LambokTest lambokTest = new LambokTest();
+        System.out.println(lambokTest.getClass());
+    }
+
     /**
      * list
      * list能改变
