@@ -28,10 +28,6 @@ public abstract class ThinkProductBuilder {
     public abstract ThinkProductBuilder buildPartC(String c);
 
 
-    public ComplexProduct getComplexProduct() {
-        return complexProduct;
-    }
-
     public ComplexProduct getCompleteProduct() {
         return complexProduct;
     }
