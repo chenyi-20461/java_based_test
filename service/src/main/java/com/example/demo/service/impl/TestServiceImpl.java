@@ -26,6 +26,7 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public EasyVo doEasyCommand(EasyCommand easyCommand) {
+        System.out.println(1);
 //        添加逻辑
         String booleanResults = null;
         if (easyCommand.getBooleanCommand())

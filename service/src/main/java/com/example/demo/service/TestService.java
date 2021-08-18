@@ -28,4 +28,6 @@ public interface TestService {
      * @return 简单返回结果
      */
     EasyVo doEasyCommand(EasyCommand easyCommand);
+
+
 }
