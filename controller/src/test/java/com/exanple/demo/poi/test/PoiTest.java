@@ -3,9 +3,11 @@ package com.exanple.demo.poi.test;
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;
 import cn.afterturn.easypoi.excel.entity.params.ExcelExportEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class PoiTest {
 
     @Test
@@ -61,6 +64,12 @@ public class PoiTest {
             FileOutputStream fos = new FileOutputStream("D:/111.xls");
             workbook.write(fos);
             fos.close();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+            log.debug("转字节流");
+//            workbook.write(baos);
+//
+//            byte[] bytes = baos.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         }
